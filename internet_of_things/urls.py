@@ -18,6 +18,7 @@ urlpatterns = patterns('',
                        url(r'^home/', include('iot.home.urls')),
                        url(r'^sensor/', include('iot.sensor.urls')),
                        url(r'^equipments/', include('iot.equipment.urls')),
+                       url(r'^saveData/$', include('iot.saveData.urls')),
                        #========================================================
                        # url(r'^equipments/', include('iot.equipment.urls')),
                        # url(r'^processors/', include('iot.processor.urls')),

@@ -274,8 +274,8 @@ class Template(models.Model):
     
     
 class ReadData(models.Model):
-    temperature = FloatField()
-    humidity = FloatField()
-    pressure = FloatField()
+    temperature = FloatField(verbose_name='Temperatura')
+    humidity = FloatField(verbose_name='Humidade')
+    #pressure = FloatField()
     dateTimeCreation = models.DateTimeField(auto_now_add=True)
     
