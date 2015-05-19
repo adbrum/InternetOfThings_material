@@ -1,0 +1,14 @@
+[
+	{
+		"model": "iot.GPU",
+		"pk": 1,
+		"fields": {
+		"type" : "Broadcom VideoCore IV",
+		"clockSpeed" : 250,
+		"userCreation" : 1,
+		"userAmendment" : 1,
+		"dateTimeCreation" : "2015-04-24 21:15:19.957000+00:00",
+		"dateTimeChange" : "2015-04-24 21:29:40.056000+00:00"
+	}
+}
+]

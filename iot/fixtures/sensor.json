@@ -1,0 +1,22 @@
+[
+	{
+		"model": "iot.Sensor",
+		"pk": 1,
+		"fields": {
+		"name" : "Temperatura",
+		"serialNumber" : "124563-55",
+		"model" : "XPTO2",
+		"function" : "Leitura da temperatura"
+	}
+},
+	{
+		"model": "iot.Sensor",
+		"pk": 2,
+		"fields": {
+		"name" : "Movimento",
+		"serialNumber" : "2545245245",
+		"model" : "XPTO2",
+		"function" : "Deteção de movimento"
+	}
+}
+]

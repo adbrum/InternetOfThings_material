@@ -1,0 +1,57 @@
+[
+	{
+		"model": "iot.Memory",
+		"pk": 1,
+		"fields": {
+		"microComputer" : 1,
+		"RAM" : "0.0",
+		"SRAM" : "2.0",
+		"EEPROM" : "1.0",
+		"flashMemory" : "32.0"
+	}
+},
+	{
+		"model": "iot.Memory",
+		"pk": 2,
+		"fields": {
+		"microComputer" : 2,
+		"RAM" : "0.0",
+		"SRAM" : "2.5",
+		"EEPROM" : "1.0",
+		"flashMemory" : "32.0"
+	}
+},
+	{
+		"model": "iot.Memory",
+		"pk": 3,
+		"fields": {
+		"microComputer" : 3,
+		"RAM" : "0.0",
+		"SRAM" : "96.0",
+		"EEPROM" : "0.0",
+		"flashMemory" : "512.0"
+	}
+},
+	{
+		"model": "iot.Memory",
+		"pk": 4,
+		"fields": {
+		"microComputer" : 4,
+		"RAM" : "0.0",
+		"SRAM" : "2.5",
+		"EEPROM" : "1.0",
+		"flashMemory" : "32.0"
+	}
+},
+	{
+		"model": "iot.Memory",
+		"pk": 5,
+		"fields": {
+		"microComputer" : 21,
+		"RAM" : "512.0",
+		"SRAM" : "0.0",
+		"EEPROM" : "0.0",
+		"flashMemory" : "0.0"
+	}
+}
+]

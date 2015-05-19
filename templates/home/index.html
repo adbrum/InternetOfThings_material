@@ -1,0 +1,242 @@
+{% extends "admin/base.html" %} {% load i18n %} {% block content %}
+
+<style>
+
+#containment-wrapper {
+	/*width: 80%;
+	height: 600px;*/
+	border: 0px;/* solid #ccc;*/
+	padding: 10px;
+	/*background-image: url(/static/img/planta_casa.jpg);*/
+    background-repeat: no-repeat;
+}
+
+</style>
+
+<head>
+</head>
+
+<html>
+
+<boddy>
+<!-- <input type="button" class="btn btn-default" id="btnEquip" value="Listar Equipamentos"> -->
+<form method="post" class="form-horizontal" id="formAddTemplate" style='visibility:visible;'>
+{% csrf_token %}
+
+<div class="row">
+
+	<div class="col-sm-6 col-md-6">
+
+	<div class="input-field col s12 ">
+    <select id="template">
+
+    </select>
+    <label>Selecione um Template</label>
+		
+	</div>
+	
+	<div>
+		<input id="save" name="Save" class="btn btn-primary" type="button" value="{%trans 'Guardar'%}">
+	</div>
+</div>
+	  
+</br>
+</br>
+
+<div class="col-sm-6 col-md-12">
+	<div id="containment-wrapper">
+	
+	</div>
+</div>
+
+</boddy>
+</html>
+<script type="text/javascript">
+	$(document).ready(function() {
+	      $.ajax({
+	         type: "POST",
+	         url: "{% url 'getTemplate' %}",
+	         data: {},
+	         dataType: "json",
+	         success: function(json){
+	        	 console.log(json);
+	            var options = "";
+	            var teste = '<li class=""><span></span></li>';
+	            options = '<option value="">----</option>';
+	            
+	            $.each(json, function(key, value){
+	               options += '<option value="' + value.id + '">' + value.nome + '</option>';
+	               teste += '<li class=""><span>'+ value.nome +'</span></li>';
+
+	            });
+	            
+	            $("#template").html(options);
+	            $('.initialized').find('ul').html(teste);
+	            
+	            $('select').material_select();
+	         }
+	      });
+	      
+	     
+	      var selectAnterior = "";
+			
+			$('select').on('change', function() {
+				
+				  if(this.value){
+					  var id_template = this.value;
+					  $( "#containment-wrapper" ).empty();
+					 // selectAnterior = this.value;
+					  //alert(this.value)
+					  
+					  
+					  $.ajax({
+					         type: "POST",
+					         url: "{% url 'getTemplate' %}",
+					         data: {"id_template":id_template},
+					         dataType: "json",
+					         success: function(json){
+					        	 	 var img = new Image();
+					        		 console.log("Caminho: "+json.caminhoImagem);
+					        		 
+					        		 img.onload = function() {
+					        		       var height = this.height,
+					        		           width = this.width;
+					        		       $("#containment-wrapper").css({'background-image':'url('+ img.src +')', 'width': img.width+'px', 'height': img.height+'px', position:'absolute'});
+					        		    }
+						        		 img.src = ""+ json.caminhoImagem +"";
+					        		 //alert(img.src);
+							          
+							            //$("#containment-wrapper").css({'background-image':'url('+ img.src +')', 'width': img.width+'px', 'height': img.height+'px', position:'absolute'});
+							  			//$("#containment-wrapper").css({"width": img.width+"px", "height": img.height+"px", position:'absolute'});
+					         }
+					      });
+					  
+					  selecionar(this.value);
+				  }else {
+					  location.reload();
+				  }
+				  
+				});
+			
+	
+		function selecionar(id_template){
+			$( document ).tooltip();
+			//var id_template = id;
+			
+			$( "#btnEquip" ).hide();
+			console.log('#someButton was clicked');
+			$.ajax({
+				type : "POST",
+				url : "/home/equipamentos/" + id_template + "/",
+				//dataType : "json",
+				//data: {};
+				success : function(retorno) {
+					console.log(retorno);
+					
+					$.each(retorno, function(i, item_equip) {
+						console.log("Nome - equipamento "+ item_equip.nomeEquipamento);
+						$("#containment-wrapper").append(
+								
+								"<div data-toggle='tooltip' data-placement='top' title='ID: "+ item_equip.equipamento_id +" - "+ item_equip.nomeEquipamento +"' style='width: 51px; height: 51px; border: 2px solid #ccc; '"
+								
+								 + "id=" +"equip_" + item_equip.equipamento_id + " class='draggable ui-widget-content'>"
+								 	+"<a href='/equipments/listEquipment_sensor/"+ item_equip.equipamento_id +"'><img src='/static/img/equipamento.png' /></a>"
+								 + "</div>"
+						);
+					
+							$.each(item_equip.sensores, function(j, item_sensor) {
+								console.log("Sensor: "+ item_sensor.sensor_id + " do Equipamento: " + item_equip.nomeEquipamento);
+
+								$("#containment-wrapper").append(
+										"<div data-toggle='tooltip' data-placement='top' title='Sensor: "+ item_sensor.nome_sensor +" - "+ item_equip.nomeEquipamento + "' style='width: 25px; height: 24px; border: 2px solid #ccc; '"
+										
+										+ "id='" + "sensor_" + item_equip.equipamento_id + "_" + item_sensor.sensor_id + "' class='draggable ui-widget-content'>"
+											 +"<a href='/sensor/sensor/" + item_sensor.sensor_id + "'><img src='/static/img/sensor01.png' /></a>"
+											 
+								      + "</div>"	 
+								);
+								
+										
+								$("#sensor_" + item_equip.equipamento_id + "_" + item_sensor.sensor_id).draggable({
+										
+										containment : "#containment-wrapper",
+										scroll : false
+								});
+							});
+
+						
+						$("#equip_" + item_equip.equipamento_id).draggable({
+							
+							containment : "#containment-wrapper",
+							scroll : false
+						});
+						
+					});
+					
+					getPosition();
+
+				},
+				
+			});
+			
+			
+			
+		};
+		
+		
+		function getPosition(){
+			$.ajax({
+			  	  type: "POST",
+			  	  url: "{% url 'getEquipmentPosition' %}",
+			  	  data: {},
+			  	  	success: function(posicao){
+			  		console.log(posicao);
+			  		  
+			  		$.each(posicao, function(i, item){
+			  			//console.log("#"+item.nome);
+			  			
+			  			$("#" + item.nome).css({"top": item.Y +"px", "left": item.X +"px", position:'absolute'})
+			  	      .addClass("selecionado");
+			  			
+			  			
+			  			
+			  		});
+			  		
+			  	  }
+			 });
+			
+		};
+		
+			
+			$("#save").click(function(e) {
+				var dados = {};
+				$('#containment-wrapper').children().each(function () {
+					var jsonData = {};
+					position = $(this).position()
+				    var columnName = $(this).attr("id");
+				    jsonData[columnName] = {"y":position.top , "x":parseInt(position.left)};
+				    $.extend(dados, jsonData);
+				});
+				jsonDados = JSON.stringify(dados);
+
+				$.ajax({
+					  type: "POST",
+					  url: "{% url 'addEquipmentPosition' %}",
+					  traditional: true,
+					  data: {"dados":jsonDados},
+					  
+					  success: function(data){
+						  //console.log(data)
+					  }
+				});
+			
+
+			});
+			
+		
+			});
+</script>
+{% endblock %}
+
+
+

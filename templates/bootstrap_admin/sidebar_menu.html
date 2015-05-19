@@ -1,0 +1,34 @@
+{% load i18n %}
+{% if app_list %}
+<div>
+</br>
+</br>
+</br>
+	<ul class="nav nav-sidebar  nav-pills nav-stacked has-active-menu show-models">
+      <!-- Menu inserido -->
+		<li><a class="section" >{% trans "Monitoring"%}</a></li>
+		<li class="section"><a  href="/home/">{% trans "Equipmamentos Ativos"%}</a></li>
+		<li class="section"><a  href="/baseDados/">{% trans "(Gerar data)"%}</a></li>
+		
+    </ul>
+  {% for app in app_list %}
+
+    <ul class="nav nav-sidebar  nav-pills nav-stacked app-{{ app.app_label }} module{% if app.app_url in current_url %} has-active-menu show-models{% endif %}">
+      <li {% if app.app_url == current_url %} class="active"{% endif %}>
+        <a href="{{ app.app_url }}" class="section" title="{% blocktrans with name=app.name %}Models in the {{ name }} application{% endblocktrans %}">
+          	{{ app.name }}
+        </a>
+      </li>
+      {% for model in app.models %}
+        <li {% if model.admin_url in current_url %}class="active"{% endif %}>
+          <a href="{% firstof model.admin_url model.add_url '#' %}" title="{% if not model.admin_url and not model.add_url %}{% trans "You don't have permission to edit anything." %}{% endif %}">{{ model.name }}</a>
+        </li>
+      {% endfor %}
+    </ul>
+  {% endfor %}
+  
+  
+{% else %}
+  <p class="permission-warning">{% trans "You don't have permission to edit anything." %}</p>
+{% endif %}
+</div>

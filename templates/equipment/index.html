@@ -1,0 +1,59 @@
+{% extends "admin/base.html" %}
+{% load i18n admin_static %}
+
+{% block content %}
+
+{%if tamLista == 0 %}
+	<div class="no_content">
+		<img src="/static/img/empty_arrow.png">
+		<p>Clique para criar um registo.</p>
+	</div>
+{%else%}
+
+
+<div class="panel panel-default">
+  <!-- Default panel contents -->
+  <div class="panel-heading">Lista de sensores</div>
+
+  <!-- Table -->
+  <table id="tabelaLista" class="table">
+	<thead>
+		<tr>
+			<th>{%	trans "ID" %}</th>
+			<th>{%	trans "Equipamento/Sensor" %}</th>
+		</tr>
+	</thead>
+	<tbody>
+		{% for equipamento in equipamentos %}
+			{% for sensor in lSensor %}
+			<tr >
+				<td><a href="/sensor/sensor/{{ sensor.sensor_id }}" >{{ sensor.sensor_id }}</a></td>
+				<td><a href="/sensor/sensor/{{ sensor.sensor_id }}" >{{ equipamento.name }} - {{ sensor.nome_sensor }}</a></td>
+			</tr>
+			{% endfor %}
+		{% endfor %}
+{% endif %}
+	</tbody>
+</table>
+</div>
+
+{% endblock %}
+{% block endJs %}
+	<script type="text/javascript">
+	$(document).ready(function() {
+		$('#tabelaLista').dataTable({
+			"oLanguage": {
+	            "sUrl": "/static/dataTables/lang/pt-pt.txt"
+	        },
+	        "sScrollY": "610px",
+	        "bScrollCollapse": true,
+	        "bStateSave": true,
+	        "aoColumnDefs": [
+	                         { 'bSortable': false, 'aTargets': [ 0 ] }
+	                      ] 	
+		});
+		
+	
+	});
+	</script>
+{% endblock %}

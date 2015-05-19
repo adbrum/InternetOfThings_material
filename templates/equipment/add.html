@@ -1,0 +1,85 @@
+{% extends "base.html" %} 
+{% load i18n admin_static %}
+
+{% block extrastyle %}{{ block.super }}<link rel="stylesheet" type="text/css" href="{% static "admin/css/dashboard.css" %}" />{% endblock %}
+
+{% block coltype %}colMS{% endblock %}
+
+{% block bodyclass %}{{ block.super }} dashboard{% endblock %}
+
+{# {% block breadcrumbs %}{% endblock %} #}
+{% block content %} 
+{%if editar%}
+<form method="post" action="{%url 'editEquipment' idEquipment%}" class="form-horizontal" id="form2" style='visibility: visible;'>
+	{%else%}
+	<form method="post" action="{%url 'addEquipment'%}" class="form-horizontal" id="form2" style='visibility: visible;'>
+		{%endif%} {% csrf_token %}
+		<div class="col-sm-9 form-fields">
+        <div class="panel panel-default form-panel">
+		<div class="panel-body">
+		<tbody>
+		<table class="view_sumary_form">
+			{% for field in form %} {% if field.field.required %}
+			<tr>
+				<td class="title"><label class="col-sm-2 control-label label_form" for="id_{{ field.name }}">{{field.label }}</label></td>
+				<td>
+					<div class="form-row form-group field-model">
+						{%if field.errors%} 
+							<span class="{% if form.errors %}errorField{% endif %}"> 
+						{%endif%} 
+							{{field}} 
+						{%if field.errors%} 
+							{% for error in field.errors %} 
+								{{error}} 
+							{% endfor %} 
+						</span> 
+						{%endif%}
+					</div>
+				</td>
+			</tr>
+
+			{%else%}
+				<tr>
+					<td class="title"><label class="col-sm-2 control-label label_form" for="id_{{ field.name }}">{{field.label }}</label></td>
+					<td>
+						<div class="form-row form-group field-model">
+						{{field}} 
+						{% for error in field.errors %} 
+							{{error}} 
+						{% endfor %}</div>
+					</td>
+				</tr>
+			{%endif%} 
+			{% endfor %}
+			</tbody>
+		</table>
+		</div>
+		</div>
+		</div>
+		<div class="col-sm-3 form-buttons">
+			<div data-spy="affix" data-offset-top="125" class="affix-top">
+				<div class="submit-row list-group">
+					<button type="submit" title="Gravar" class="list-group-item active"
+						name="_save">
+						<span class="glyphicon glyphicon-floppy-disk"></span> <span
+							class="text">Gravar</span>
+					</button>
+					<button type="submit" class="list-group-item"
+						title="Gravar e adicionar outro" name="_addanother">
+						<span class="glyphicon glyphicon-plus"></span> <span class="text">Gravar e adicionar outro</span>
+					</button>
+					<button type="submit" class="list-group-item"
+						title="Gravar e continuar a editar" name="_continue">
+						<span class="glyphicon glyphicon-pencil"></span> <span class="text">Gravar e continuar a editar</span>
+					</button>
+				</div>
+			</div>
+		</div>
+	</form>
+
+	{% endblock %}
+	<script type="text/javascript">
+		$(document).ready(function() {
+
+		});
+	</script>
