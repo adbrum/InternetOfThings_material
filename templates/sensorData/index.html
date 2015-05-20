@@ -1,0 +1,84 @@
+{% extends "admin/base.html" %}
+{% load i18n admin_static %}
+
+{% block extrastyle %}{{ block.super }}<link rel="stylesheet" type="text/css" href="{% static "admin/css/dashboard.css" %}" />{% endblock %}
+
+{% block coltype %}colMS{% endblock %}
+
+{% block bodyclass %}{{ block.super }} dashboard{% endblock %}
+
+{# {% block breadcrumbs %}{% endblock %} #}
+{% block content %}
+
+<html>
+  <head>
+  <input hidden type="text" id="temp" value="{{temp}}">
+    <input hidden type="text" id="hum" value="{{hum}}">
+    <title>Auto-adjust</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <style>
+      body {
+        text-align: center;
+      }
+      
+      #g1, #g2 {
+        width:400px; height:320px;
+        display: inline-block;
+        margin: 1em;
+      }
+      
+       #g3, #g4 {
+        width:100px; height:80px;
+        display: inline-block;
+        margin: 1em;
+      }
+
+    </style>
+    
+    <script type="text/javascript" src="{% static 'resources/js/raphael.2.1.0.min.js' %}"></script>
+    <script type="text/javascript" src="{% static 'resources/js/justgage.1.0.1.min.js' %}"></script>
+
+    <script>
+      var temp = $("#temp").val();
+	  var hum = $("#hum").val();
+
+      var g1, g2;
+      
+      window.onload = function(){
+    	  
+        var g1 = new JustGage({
+          id: "g1", 
+          value: temp,//getRandomInt(0, 100), 
+          min: -10,
+          max: 100,
+          //gaugeColor : "#323232",
+          title: "Temperatura",
+          label: "ºC"
+        });
+        
+        var g2 = new JustGage({
+          id: "g2", 
+          value: hum, 
+          min: 0,
+          max: 100,
+          title: "Humidade",
+          label: "%"
+        });
+      
+        setInterval(function() {
+          g1.refresh(temp);
+          g2.refresh(hum);          
+          
+        }, 2500);
+      };
+    </script>
+  </head>
+  <body>
+	<div class="row">    
+	    <div id="g1"></div>
+	    <div id="g2"></div>
+	</div>
+  </body>
+</html>
+
+{% endblock %}

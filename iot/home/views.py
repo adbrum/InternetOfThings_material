@@ -2,7 +2,7 @@
 """
 :Autor: Adriano Leal
 :Aluno: 11951
-:email l911911951@alunos.ipbeja.pt
+:email: l911911951@alunos.ipbeja.pt
 """
 
 import json

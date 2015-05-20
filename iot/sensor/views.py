@@ -13,7 +13,8 @@ from django.template import RequestContext
 from django.utils.datetime_safe import datetime
 from django.utils.translation import ugettext_lazy as _
 from django.views.decorators.csrf import csrf_protect
-from iot.models import Sensor
+
+from iot.models import Sensor, ReadData
 
 
 #from forms import AddEquipmentForm, FichaEquipmentForm
@@ -40,67 +41,24 @@ def sensor(request, *args, **kwargs):
     idSensor = kwargs["idSensor"]
     
     sensor = Sensor.objects.get(id = idSensor)
-    template = "sensor/index.html"
-    return render_to_response(template,
+    
+    if request.method == 'GET':
+        
+        sensorData = ReadData.objects.latest('id')
+        print'SENSOR DATA', 
+        temp = int(sensorData.temperature)
+        hum = int(sensorData.humidity)
+        
+        
+        template = "sensorData/index.html"
+        return render_to_response(template,
                               locals(),
-                              context_instance=RequestContext(request))
+                              context_instance=RequestContext(request)
+                              )
+    #===========================================================================
+    # template = "sensor/index.html"
+    # return render_to_response(template,
+    #                           locals(),
+    #                           context_instance=RequestContext(request))
+    #===========================================================================
 
-#===============================================================================
-# 
-# @csrf_protect
-# def addEquipment(request):
-#     """
-#     Adiciona um equipamento novo
-#     """
-#     
-#     TITULO = _(u'Equipamentos')
-#     NOME_BREAD = _(u'Novo')
-#     TITULO_BOTAO = _(u'Guardar')
-# 
-#     saveNew = True
-# 
-#     if request.method == 'POST':
-#         form = AddEquipmentForm(request.POST)
-# 
-#         # Caso Click em cancelar
-#         # Retorna para a listagem
-#         if 'Cancelar' in request.POST or 'listEquipment' in request.POST:
-#             return HttpResponseRedirect(reverse('listEquipment'))
-# 
-#         if form.is_valid():
-# 
-#             tableEquipament = Equipment(
-#                 name=form.cleaned_data['name'],
-#                 model=form.cleaned_data['model'],
-#                 microComputer = form.cleaned_data['microComputer'],
-#                 sensor = form.cleaned_data['sensor'],
-#                 expansion = form.cleaned_data['expansion'],
-#                 accessory = form.cleaned_data['accessory'],
-#                 dateTimeCreation=datetime.now(),
-#                 userCreation=request.user,
-#                 dateTimeChange=datetime.now(),
-#                 serAmendment=request.user,
-#             )
-#             
-#             tableEquipament.save()
-#             
-#             if 'SaveAndNew' in request.POST:
-#                 form = AddEquipmentForm()
-#                 template = "equipment/add.html"
-# 
-#             else:
-#                 return HttpResponseRedirect(reverse('listEquipment'))
-# 
-#         else:
-#             template = "equipment/add.html"
-# 
-#     else:
-#         # img =  "/static/img/placeholder.png"
-#         form = AddEquipmentForm()
-#         template = "equipment/add.html"
-# 
-#     return render_to_response(template,
-#                               locals(),
-#                               context_instance=RequestContext(request),
-#                               )
-#===============================================================================
