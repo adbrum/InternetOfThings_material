@@ -53,16 +53,31 @@ def loadData(request, *args, **kwargs):
 
     if request.method == 'GET':
         
+        response_data = []
+        
+        
+        
         sensorData = ReadData.objects.latest('id')
-        print'SENSOR DATA', 
-        temp = int(sensorData.temperature)
-        hum = int(sensorData.humidity)
+        print'SENSOR DATA', sensorData.temperature
+        #temp = int(sensorData.temperature)
+        #hum = int(sensorData.humidity)
         
         
-        template = "sensorData/index.html"
-        return render_to_response(template,
-                              locals(),
-                              context_instance=RequestContext(request)
-                              )
+        response_data.append({"sensorData_temp":int(sensorData.temperature),
+                            "sensorData_hum":int(sensorData.humidity)})
+        
+        print"RESPONSE", response_data
+        
+       
+        #response_data.append(dictSensorData)
+        
+        return HttpResponse(json.dumps(response_data), content_type = "application/json")
+        #=======================================================================
+        # template = "sensorData/index.html"
+        # return render_to_response(template,
+        #                       locals(),
+        #                       context_instance=RequestContext(request)
+        #                       )
+        #=======================================================================
         
         
