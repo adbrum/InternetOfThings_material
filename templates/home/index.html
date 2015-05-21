@@ -1,4 +1,8 @@
-{% extends "admin/base.html" %} {% load i18n %} {% block content %}
+{% extends "admin/base.html" %} {% load i18n %}
+{% block breadcrumbs_items %}
+	<a href="{% url 'home' %}">Templates</a>
+{% endblock %} 
+{% block content %}
 
 <style>
 

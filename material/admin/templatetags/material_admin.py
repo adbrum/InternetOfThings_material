@@ -1,17 +1,17 @@
 import datetime
-
 from django.apps import apps
-from django.contrib.admin.views.main import PAGE_VAR
 from django.contrib.admin import site
+from django.contrib.admin.views.main import PAGE_VAR
 from django.core.urlresolvers import reverse, NoReverseMatch
 from django.db import models
+from django.template import Library
+from django.template.defaultfilters import stringfilter
 from django.utils import formats, six
 from django.utils.dates import MONTHS
 from django.utils.html import format_html
 from django.utils.safestring import mark_safe
 from django.utils.text import capfirst
 from django.utils.translation import ugettext as _
-from django.template import Library
 
 from material import Layout, Fieldset, Row
 
@@ -206,3 +206,11 @@ def date_hierarchy(cl):
                     'title': str(year.year),
                 } for year in years]
             }
+
+@register.filter(name='custom_app_label')
+@stringfilter
+def custom_app_label(value):
+    custom_app_labels = {
+        'Auth':  _("Accounts to Users"),
+    }
+    return custom_app_labels.get(value, value)
