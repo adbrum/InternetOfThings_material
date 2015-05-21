@@ -30,7 +30,7 @@
         {% if user.is_authenticated %}
         <ul id="user-menu" class="dropdown-content">
             {% block user_menu %}
-            <li><a href="/accounts/profile/">{% trans 'Profile' %}</a></li>
+            <li><a href="/admin/auth/user/{{user.id}}">{% trans 'Profile' %}</a></li>
             <li><a href="{% url 'admin:logout' %}">{% trans 'Log out' %}</a></li>
             {% block user_menu_extra %}{% endblock %}
             {% endblock %}
@@ -53,7 +53,7 @@
 
                 <ul id="nav-mobile" class="side-nav fixed module-menu">
                     <li class="logo valign-wrapper">
-                        <a href="/" class="no-navigation">{% block page_logo %}<img class="responsive-img" src="{% static 'material/imgs/logo.png' %}">{% endblock %}</a>
+                        <a href="/" class="no-navigation">{% block page_logo %}<img class="responsive-img" src="{% static 'material/imgs/logo.jpg' %}">{% endblock %}</a>
                     </li>
 
                     {% block breadcrumbs_left %}

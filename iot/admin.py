@@ -8,6 +8,7 @@ GPU, OperatingSystem, Interface, Expansion, Accessory, Memory, Equipment, Sensor
 
 class MicrocomputerAdmin(admin.ModelAdmin):
     list_display = ('model', 'name')
+    search_fields = ['name']
     ordering = ('model',)
     
 
@@ -15,11 +16,13 @@ admin.site.register(Microcomputer, MicrocomputerAdmin)
 
 class MicrocontrollerAdmin(admin.ModelAdmin):
     list_display = ('type', 'clockSpeed')
+    search_fields = ['type']
     ordering = ('type',)
     
 
 class TemplateAdmin(admin.ModelAdmin):
     list_display = ('name')
+    search_fields = ['name']
     ordering = ('name',)
 
     
