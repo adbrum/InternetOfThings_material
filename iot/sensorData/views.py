@@ -31,10 +31,10 @@ def saveData(request, *args, **kwargs):
 
     if request.method == 'POST':
         temperatura = request.POST['temperatura']
-        humidade = request.POST['humidade']
+        umidade = request.POST['umidade']
 
         tableReadData = ReadData(temperature = temperatura,
-                                 humidity = humidade,
+                                 humidity = umidade,
                                  )
         tableReadData.save()
         return HttpResponse(json.dumps({'done':True}), content_type = "application/json")
@@ -46,7 +46,7 @@ def saveData(request, *args, **kwargs):
 @csrf_exempt
 def loadData(request, *args, **kwargs):
     """
-    Salva na base de dados informações sobre Temperatura e Humidade recebidas de um ficheiro python executado no Unirest.    
+    Salva na base de dados informações sobre Temperatura e Umidade recebidas de um ficheiro python executado no Unirest.    
     """
     
     TITULO = _(u'Internet das Coisas')
