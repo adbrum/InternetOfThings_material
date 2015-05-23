@@ -1,3 +1,4 @@
+# -*- coding: utf-8 -*-
 import datetime
 from django.apps import apps
 from django.contrib.admin import site
@@ -211,6 +212,6 @@ def date_hierarchy(cl):
 @stringfilter
 def custom_app_label(value):
     custom_app_labels = {
-        'Auth':  _("Accounts to Users"),
+        'Auth':  _("Contas dos utilizadores"),
     }
     return custom_app_labels.get(value, value)

@@ -16,3 +16,4 @@ encoding//iot/sensor/urls.py=utf-8
 encoding//iot/sensor/views.py=utf-8
 encoding//iot/sensorData/urls.py=utf-8
 encoding//iot/sensorData/views.py=utf-8
+encoding//material/admin/templatetags/material_admin.py=utf-8
