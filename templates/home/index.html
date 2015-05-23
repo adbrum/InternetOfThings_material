@@ -89,7 +89,7 @@
        <div class="col s12 m8 l8">
             <div class="well">
                 <div>
-                    <span hidden id="title_template" class="black-text">Template</span>
+                    <span id="title_template" class="black-text">Template</span>
                     </br>
                     <div id="containment-wrapper">
 					</div>
@@ -102,7 +102,7 @@
                 <div>
                 <span id="title_gauge" class="black-text"></span>
 
-	                    <div hidden classe="gauge" id="gauges">    
+	                    <div classe="gauge" id="gauges">    
 						    <div id="g1"></div>
 						    <div id="g2"></div>
                     </div>
@@ -110,21 +110,6 @@
             </div>
         </div>
  	</div>
-	
-	<div class="container"> 
-		<div class="row">
-			<div class="col-sm-6 col-md-6">
-			    <div id="containment-wrapper">
-			</div>
-			</div>
-			    <div> 
-			        <div hidden classe="gauge col-sm-4 col-md-4" id="gauges">    
-					    <div id="g1"></div>
-					    <div id="g2"></div>
-					</div>
-		       </div>
-		</div>
-	</div>
 </br>
 </br>
 
@@ -133,7 +118,8 @@
 <script type="text/javascript">
 	$(document).ready(function() {
 		
-		$("gauges").hide();
+		$("span").hide();
+		$( "#gauges" ).hide();
 		
 	      $.ajax({
 	         type: "POST",
@@ -207,8 +193,7 @@
 		function selecionar(id_template){
 			$( document ).tooltip();
 			//var id_template = id;
-			
-			$( "#btnEquip" ).hide();
+
 			console.log('#someButton was clicked');
 			$.ajax({
 				type : "POST",
@@ -236,25 +221,32 @@
 										"<div data-toggle='tooltip' data-placement='top' title='Sensor: "+ item_sensor.nome_sensor +" - "+ item_equip.nomeEquipamento + "' style='width: 25px; height: 24px; border: 2px solid #ccc; '"
 										
 										+ "id='" + "sensor_" + item_equip.equipamento_id + "_" + item_sensor.sensor_id + "' class='draggable ui-widget-content'>"
+											// +"<img src='/static/img/sensor01.png' /></a>"
 											 +"<a href='/sensor/sensor/" + item_sensor.sensor_id + "'><img src='/static/img/sensor01.png' /></a>"
 											 //+"<a href='/sensorData/load/'><img src='/static/img/sensor01.png' /></a>"
 								      + "</div>"	 
 								);
-								
 										
 								$("#sensor_" + item_equip.equipamento_id + "_" + item_sensor.sensor_id).draggable({
 										
 										containment : "#containment-wrapper",
 										scroll : false
 								});
-								
-								$("#sensor_" + item_equip.equipamento_id + "_" + item_sensor.sensor_id).mousemove(function(event){
-									//alert("sensor_" + item_equip.equipamento_id + "_" + item_sensor.sensor_id);
+
+								/*
+								$("#sensor_" + item_equip.equipamento_id + "_" + item_sensor.sensor_id).click(function(event){
 
 									$("#gauges").show();
 									$("span").show();
 								});
 								
+								
+								$( "#containment-wrapper").mousemove(function(event) {
+
+									$("#gauges").hide();
+									$("span").hide();
+ 
+								});*/
 							});
 
 						
@@ -271,9 +263,6 @@
 				},
 				
 			});
-			
-			
-			
 		};
 		
 		
