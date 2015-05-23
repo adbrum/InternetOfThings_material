@@ -1,3 +1,4 @@
+# -*- coding: utf-8 -*-
 """
 Django settings for internet_of_things project.
 
@@ -64,6 +65,7 @@ INSTALLED_APPS = (
     'material',
     'material.frontend',
     'material.admin',
+    'admin_reorder',
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
@@ -84,6 +86,31 @@ MIDDLEWARE_CLASSES = (
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
     'audit_log.middleware.UserLoggingMiddleware',
     'django.middleware.locale.LocaleMiddleware',
+    'admin_reorder.middleware.ModelAdminReorder',
+)
+
+ADMIN_REORDER = (
+    # Keep original label and models
+    'sites',
+
+    # Rename app
+    #{'app': 'auth', 'label': 'Contas de Utilizadores'},
+
+    # Reorder app models
+    {'app': 'auth', 'models': ('auth.User', 'auth.Group')},
+    {'app': 'iot', 'models': ('iot.Template', 'iot.Equipment', 'iot.Microcomputer', 'iot.Sensor')},
+
+    # Exclude models
+    #{'app': 'auth', 'models': ('auth.User', )},
+
+    # Cross-linked models
+    #{'app': 'auth', 'models': ('auth.User', 'sites.Site')},
+
+    # models with custom name
+    #{'app': 'auth', 'models': (
+     #   'auth.Group',
+    #    {'model': 'auth.User', 'label': 'Staff'},
+    #)},
 )
 
 ROOT_URLCONF = 'internet_of_things.urls'
