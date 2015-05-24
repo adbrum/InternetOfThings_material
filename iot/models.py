@@ -265,7 +265,7 @@ class RelativePosition(models.Model):
     
 class Template(models.Model):
     name = models.CharField(max_length=100, verbose_name='Nome do Template')
-    imagePath = models.FileField(upload_to=MEDIA_ROOT, blank=True)
+    imagePath = models.FileField(upload_to=MEDIA_ROOT +"/img", blank=True)
     # imagePath = models.CharField(max_length=200, verbose_name='Imagem')
     equipment = models.ManyToManyField('Equipment', verbose_name='Equipamentos')
     

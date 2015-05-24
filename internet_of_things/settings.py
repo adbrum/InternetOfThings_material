@@ -154,8 +154,8 @@ DATABASES = {
 #===============================================================================
 
 # ESQUEMA DE LOGIN
-AUTH_PROFILE_MODULE = 'InternetofThings.login'
-LOGIN_URL = '/InternetofThings/login'
+AUTH_PROFILE_MODULE = 'InternetOfThings.login'
+LOGIN_URL = '/InternetOfThings/login'
 
 # Internationalization
 # https://docs.djangoproject.com/en/1.7/topics/i18n/
@@ -189,13 +189,13 @@ MEDIA_ROOT = 'static'
 # trailing slash.
 # Examples: "http://example.com/media/", "http://media.example.com/"
 #MEDIA_URL = 'http://192.168.5.82:8002/static/'
-MEDIA_URL = 'http://127.0.0.1:8000/static/'
+#MEDIA_URL = 'http://127.0.0.1:8000/static/'
  
 # Absolute path to the directory static files should be collected to.
 # Don't put anything in this directory yourself; store your static files
 # in apps' "static/" subdirectories and in STATICFILES_DIRS.
 # Example: "/var/www/example.com/static/"
-STATIC_ROOT = '/home/adriano/workspace/iot/InternetofThings/static/'
+STATIC_ROOT = '/home/adbrum/workspace/material/InternetOfThings_material/iot/static/'
 
 
 # Static files (CSS, JavaScript, Images)
