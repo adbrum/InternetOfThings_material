@@ -25,9 +25,13 @@ def listSensors(request):
     """
     
     TITULO = _(u'Equipamentos')
-
-    sensores = Sensor.objects.all().order_by('name')
-    tamLista = len(sensores)
+    
+    try:
+        sensores = Sensor.objects.all().order_by('name')
+        tamLista = len(sensores)
+    except:
+        pass
+    
     template = "sensor/index.html"
     return render_to_response(template,
                               locals(),
@@ -40,15 +44,19 @@ def sensor(request, *args, **kwargs):
     
     idSensor = kwargs["idSensor"]
     
+    
     sensor = Sensor.objects.get(id = idSensor)
     
+    
     if request.method == 'GET':
+        try:
+            sensorData = ReadData.objects.latest('id')
         
-        sensorData = ReadData.objects.latest('id')
-        print'SENSOR DATA', 
-        temp = int(sensorData.temperature)
-        hum = int(sensorData.humidity)
-        
+            print'SENSOR DATA', 
+            temp = int(sensorData.temperature)
+            hum = int(sensorData.humidity)
+        except:
+            pass
         
         template = "sensorData/index.html"
         return render_to_response(template,

@@ -41,22 +41,23 @@ def listEquipment_sensor(request, *args, **kwargs):
     
     
     response_data = []
-    
-    for equipamento in equipamentos:
-        
-        dictEquip =  {"equipamento_id":equipamento.id,
-                      "nomeEquipamento":equipamento.name}
-        lSensor = []
-        for sensor in equipamento.sensor.all():
-            s = Sensor.objects.get(id=sensor.id)
-            dictSensor =  {"sensor_id":s.id,
-                           "nome_sensor":s.name}
-            lSensor.append(dictSensor)
-            print s.name
+    try:
+        for equipamento in equipamentos:
             
-        dictEquip["sensores"] = lSensor
-        response_data.append(dictEquip)
-        
+            dictEquip =  {"equipamento_id":equipamento.id,
+                          "nomeEquipamento":equipamento.name}
+            lSensor = []
+            for sensor in equipamento.sensor.all():
+                s = Sensor.objects.get(id=sensor.id)
+                dictSensor =  {"sensor_id":s.id,
+                               "nome_sensor":s.name}
+                lSensor.append(dictSensor)
+                print s.name
+                
+            dictEquip["sensores"] = lSensor
+            response_data.append(dictEquip)
+    except:
+        pass    
     
     template = "equipment/index.html"
     return render_to_response(template,

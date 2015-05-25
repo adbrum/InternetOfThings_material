@@ -31,6 +31,7 @@
         <ul id="user-menu" class="dropdown-content">
             {% block user_menu %}
             <li><a href="/admin/auth/user/{{user.id}}">{% trans 'Profile' %}</a></li>
+            <li><a href="{% url 'admin:password_change' %}">{% trans 'Change password' %}</a></li>
             <li><a href="{% url 'admin:logout' %}">{% trans 'Log out' %}</a></li>
             {% block user_menu_extra %}{% endblock %}
             {% endblock %}

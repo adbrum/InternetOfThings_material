@@ -54,9 +54,7 @@ def loadData(request, *args, **kwargs):
     if request.method == 'GET':
         
         response_data = []
-        
-        
-        
+         
         sensorData = ReadData.objects.latest('id')
         print'SENSOR DATA', sensorData.temperature
         #temp = int(sensorData.temperature)

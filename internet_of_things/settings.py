@@ -64,6 +64,7 @@ INSTALLED_APPS = (
     #'django.contrib.admin',
     'material',
     'material.frontend',
+    'easy_pjax',
     'material.admin',
     'admin_reorder',
     'django.contrib.admin',
@@ -98,7 +99,7 @@ ADMIN_REORDER = (
 
     # Reorder app models
     {'app': 'auth', 'models': ('auth.User', 'auth.Group')},
-    {'app': 'iot', 'models': ('iot.Template', 'iot.Equipment', 'iot.Microcomputer', 'iot.Sensor')},
+    {'app': 'iot', 'models': ('iot.Template', 'iot.Equipment', 'iot.Sensor')},
 
     # Exclude models
     #{'app': 'auth', 'models': ('auth.User', )},
@@ -195,7 +196,8 @@ MEDIA_ROOT = 'static'
 # Don't put anything in this directory yourself; store your static files
 # in apps' "static/" subdirectories and in STATICFILES_DIRS.
 # Example: "/var/www/example.com/static/"
-STATIC_ROOT = '/home/adbrum/workspace/material/InternetOfThings_material/iot/static/'
+#STATIC_ROOT = '/home/adbrum/workspace/material/InternetOfThings_material/iot/static/'
+STATIC_ROOT = os.path.join(BASE_DIR, "static/")
 
 
 # Static files (CSS, JavaScript, Images)
