@@ -1,6 +1,6 @@
 {% extends "admin/base.html" %} {% load i18n admin_static %}
 {% block breadcrumbs_items %}
-	<a href="{% url 'home' %}">Templates</a>
+	<a href="/">Templates</a>
 {% endblock %} 
 {% block content %}
 
@@ -17,7 +17,7 @@
  padding-right: 15px;
  padding-left: 15px;
  margin-center: 10px;
- background-color: withe;
+ /*background-color: withe;*/
  
 }
 
@@ -64,7 +64,7 @@
 
 <html>
 
-<boddy>
+<boddy style="text-align: left;">
 	<form method="post" class="form-horizontal" id="formAddTemplate" style='visibility:visible;'>
 	{% csrf_token %}
 	<div class="container">

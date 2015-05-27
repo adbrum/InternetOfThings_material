@@ -1,43 +1,40 @@
 {% extends "admin/base.html" %}
 {% load i18n admin_static %}
 {% block breadcrumbs_items %}
-	<a href="{% url 'home' %}">Templates</a>
+	<a href="/">Templates</a> ⟩
+	<a href="#"><i class="fa adm-app-default adm-iot-sensor"></i> &nbsp;&nbsp;Equipamentos</a>
 {% endblock %} 
 {% block content %}
-
-{%if tamLista == 0 %}
-	<div class="no_content">
-		<img src="/static/img/empty_arrow.png">
-		<p>Clique para criar um registo.</p>
-	</div>
-{%else%}
-
-
-<div class="card">
-  <!-- Default panel contents -->
-  <!-- <div class=" card-content">Lista de sensores</div> -->
-
-  <!-- Table -->
-  <table id="tabelaLista" class="table card-content">
-	<thead>
-		<tr>
-			<th>{%	trans "ID" %}</th>
-			<th>{%	trans "Equipamento/Sensor" %}</th>
-		</tr>
-	</thead>
-	<tbody>
-		{% for equipamento in equipamentos %}
-			{% for sensor in lSensor %}
-			<tr >
-				<td><a href="/sensor/sensor/{{ sensor.sensor_id }}" >{{ sensor.sensor_id }}</a></td>
-				<td><a href="/sensor/sensor/{{ sensor.sensor_id }}" >{{ equipamento.name }} - {{ sensor.nome_sensor }}</a></td>
-			</tr>
-			{% endfor %}
-		{% endfor %}
-{% endif %}
-	</tbody>
-</table>
+<body>
+<html>
+<div class="container" style="text-align: left;">
+	<div class="card" >
+		<div class="card-content">
+			<div class="input-field col s12 m6 l6 ">
+			    <table id="tabelaLista">
+					<thead>
+						<tr>
+							<th>{%	trans "ID" %}</th>
+							<th>{%	trans "Equipamento/Sensor" %}</th>
+						</tr>
+					</thead>
+					<tbody>
+						{% for equipamento in equipamentos %}
+							{% for sensor in lSensor %}
+							<tr >
+								<td><a href="/sensor/sensor/{{ sensor.sensor_id }}" >{{ sensor.sensor_id }}</a></td>
+								<td><a href="/sensor/sensor/{{ sensor.sensor_id }}" >{{ equipamento.name }} - {{ sensor.nome_sensor }}</a></td>
+							</tr>
+							{% endfor %}
+						{% endfor %}
+					</tbody>
+				</table>
+			</div>
+		</div>
+	</div>	
 </div>
+</html>
+</body>
 
 {% endblock %}
 {% block endJs %}

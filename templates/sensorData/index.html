@@ -1,7 +1,9 @@
 {% extends "admin/base.html" %}
 {% load i18n admin_static %}
-
-{# {% block breadcrumbs %}{% endblock %} #}
+{% block breadcrumbs_items %}
+	<a href="/">Templates</a> ⟩
+	<a href="#"><i class="fa adm-app-default adm-iot-sensor"></i> &nbsp;&nbsp;Sensores</a>
+{% endblock %} 
 {% block content %}
 
 <html>
@@ -31,10 +33,18 @@
     <script type="text/javascript" src="{% static 'resources/js/justgage.1.0.1.min.js' %}"></script>
  </head>
   <body>
-	<div class="card" style="text-align: center;">    
-	    <div id="g1"></div>
-	    <div id="g2"></div>
-	</div>
+  
+  <div class="container" style="text-align: left;">
+	<div class="card" style="text-align: center;>
+		<div class="card-content">
+			<div class="input-field col s12 m6 l6 ">
+			    <div id="g1"></div>
+	    		<div id="g2"></div>
+			</div>
+		</div>
+	</div>	
+</div>
+
   </body>
 </html>
 <script type="text/javascript">
