@@ -7,11 +7,11 @@ nº Aluno: 11951
 from datetime import datetime
 from django.contrib.auth.models import User
 from django.db import models
+from django.db.models.fields import FloatField
 from django.utils.translation import ugettext_lazy as _
 
 from audit_log.models.fields import CreatingUserField, LastUserField
-from internet_of_things.settings import MEDIA_ROOT
-from django.db.models.fields import FloatField
+from internet_of_things.settings import STATIC_ROOT, STATIC_URL
 
 
 class Microcomputer(models.Model):
@@ -265,7 +265,7 @@ class RelativePosition(models.Model):
     
 class Template(models.Model):
     name = models.CharField(max_length=100, verbose_name='Nome do Template')
-    imagePath = models.FileField(upload_to=MEDIA_ROOT +"/img", blank=True)
+    imagePath = models.FileField(upload_to=STATIC_URL +"/img", blank=True)
     # imagePath = models.CharField(max_length=200, verbose_name='Imagem')
     equipment = models.ManyToManyField('Equipment', verbose_name='Equipamentos')
     
