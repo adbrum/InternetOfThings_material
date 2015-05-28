@@ -6,12 +6,12 @@
 
 <style>
 
-.container, .container-fluid {
+/*.container, .container-fluid {
  padding-right: 15px;
  padding-left: 15px;
  margin-left: 10px;
  text-align: left;
-}
+}*/
 
 .gauge {
  padding-right: 15px;
@@ -37,13 +37,13 @@
 </style>
 
 <head>
-<!--  <input hidden type="text" id="temp" >
+<input hidden type="text" id="temp" >
 	<input hidden type="text" id="hum">
     <title>Internet das Coisas</title>
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
 	    <style>
 	      body {
-	        text-align: center;
+	        text-align: left;
 	      }
 	      
 	      #g3, #g4 {
@@ -53,14 +53,14 @@
 	      }
 	      
 	       #g1, #g2 {
-	        width:200px; height:180px;
+	        width:200px; height:120px;
 	        display: inline-block;
 	        margin: 1em;
 	      }
 	    </style>
     <script type="text/javascript" src="{% static 'resources/js/raphael.2.1.0.min.js' %}"></script>
     <script type="text/javascript" src="{% static 'resources/js/justgage.1.0.1.min.js' %}"></script>
-    -->	
+    	
 </head>
 
 <html>
@@ -83,42 +83,33 @@
 				</br>
 			</br>
 			<div class="row">
-			    <div class="col s12">
-			        
+			    <div class="col s12"><div></div>
 			        <div class="col s12">
 			            <div class="center">
-			                <div class="containment-wrapper" id="containment-wrapper" >
-					</div>
+			            	<div class="containment-wrapper" id="containment-wrapper" ></div>
 			            </div>
 			        </div>
 			    </div>
 			</div>
-
-            </div>
-        </div>
-        
+		</div>
+  	</div>
     </div>
     <div class="col s12 m4 l3">
         <div class="card filters">
-            <div class="card-content">
-                <span class="card-title black-text" style="margin-bottom:20px">Filters</span>
-                
-
-
+        <span class="card-title black-text" style="margin-bottom:20px; text-align: right;">Sensores</span>
+            <div class="card-content" style="text-align: center;">
+            <div id="g1" style="width:220px; height:140px"></div>
+            <div id="g2" style="width:220px; height:140px"></div>
 			</div>
 		</div>
-	
-
  	</div>
-
-
 </boddy>
 </html>
 <script type="text/javascript">
 	$(document).ready(function() {
-		
 		//$("span").hide();
-		//$( "#gauges" ).hide();
+		$( "#g1" ).hide();
+		$( "#g2" ).hide();
 		
 	      $.ajax({
 	         type: "POST",
@@ -231,7 +222,13 @@
 										
 										containment : "#containment-wrapper",
 										scroll : false
-								});
+								}).mouseenter(function() {
+									  $( "#g1" ).show();
+									  $( "#g2" ).show();
+								}).mouseleave(function() {
+									  $( "#g1" ).hide();
+									  $( "#g2" ).hide();
+								});;
 		
 							});
 								
@@ -300,7 +297,7 @@
 
 			});
 			
-			/*
+			
 			var temp = 0;
 			  var hum = 50;
 			// set interval
@@ -323,7 +320,7 @@
 			});
 			
 			}setInterval(mycode, 2000);
-			/*
+			
 			var g1, g2;
 
 			var g1 = new JustGage({
@@ -353,7 +350,7 @@
 		          g2.refresh(hum);          
 		          
 		        }, 2500);
-			*/
+			
 
 			});
 </script>
