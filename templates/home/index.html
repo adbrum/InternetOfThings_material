@@ -23,21 +23,21 @@
 
 
 #containment-wrapper {
-	width: 50%;
-	height: 50%;
-	z-index:-1;
+	/*width: 50%;
+	height: 50%;*/
+	/*z-index:-1;
 	border: 0px;/* solid #ccc;*/
-	padding: 10px;
+	/*padding: 10px;*/
 	background-repeat: no-repeat;
-    margin-left: 10px;
+   /* margin-left: 10px;
     background-size: 100% 100%;
-    text-align: left;
+    text-align: left;*/
 }
 
 </style>
 
 <head>
-	<input hidden type="text" id="temp" >
+<!--  <input hidden type="text" id="temp" >
 	<input hidden type="text" id="hum">
     <title>Internet das Coisas</title>
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
@@ -60,6 +60,7 @@
 	    </style>
     <script type="text/javascript" src="{% static 'resources/js/raphael.2.1.0.min.js' %}"></script>
     <script type="text/javascript" src="{% static 'resources/js/justgage.1.0.1.min.js' %}"></script>
+    -->	
 </head>
 
 <html>
@@ -67,50 +68,49 @@
 <boddy style="text-align: left;">
 	<form method="post" class="form-horizontal" id="formAddTemplate" style='visibility:visible;'>
 	{% csrf_token %}
-	<div class="container">
-		<div class="card">
-			<div class="card-content">
-				<div class="input-field col s12 m6 l6 ">
-				    <select id="template">
-				    </select>
-			    	<label>Selecione um Template</label>
-				</div>
-				<div class="input-field col s12 m6 l6 ">
-					<div>
-						<input id="save" name="Save" class="btn btn-primary" type="button" value="{%trans 'Guardar'%}">
-						<input type="submit" formaction="/admin/iot/template/" id="novo" name="Novo" class="btn btn-primary" type="button" value="{%trans 'Novo'%}">
-					</div>
-				</div>
-			</div>
-		</div>	
-	</div>
 	
-	<div class="container">
-			<div>
-				<div class="col s12 m6 l6 ">
-				    <div id="containment-wrapper">
-					</div>
+<div class="row">
+    <div class="col s12 m8 l9">
+        <div class="card" style='height: 800px;'>
+            <div class="card-content">
+	            <select id="template">
+			    </select>
+		    	<label>Selecione um Template</label>
+		    	<div>
+					<input id="save" name="Save" class="btn btn-primary" type="button" value="{%trans 'Guardar'%}">
+					<input type="submit" formaction="/admin/iot/template/" id="novo" name="Novo" class="btn btn-primary" type="button" value="{%trans 'Novo'%}">
 				</div>
+				</br>
+			</br>
+			<div class="row">
+			    <div class="col s12">
+			        
+			        <div class="col s12">
+			            <div class="center">
+			                <div class="containment-wrapper" id="containment-wrapper" >
+					</div>
+			            </div>
+			        </div>
+			    </div>
+			</div>
+
+            </div>
+        </div>
+        
+    </div>
+    <div class="col s12 m4 l3">
+        <div class="card filters">
+            <div class="card-content">
+                <span class="card-title black-text" style="margin-bottom:20px">Filters</span>
+                
+
+
 			</div>
 		</div>
 	
 
-        
-       <!--  <div class="col s12 m2 l2 app">
-            <div class="card">
-                <div>
-                <span id="title_gauge" class="black-text"></span>
-
-	                    <div classe="gauge" id="gauges">    
-						    <div id="g1"></div>
-						    <div id="g2"></div>
-                    </div>
-                </div>
-            </div>
-        </div> -->
  	</div>
-</br>
-</br>
+
 
 </boddy>
 </html>
@@ -170,7 +170,7 @@
 					        		           width = this.width;
 					        		      
 					        		       //$("#containment-wrapper").css({'background-image':'url('+ img.src +')', 'width': img.width+'px', 'height': img.height+'px', position:'absolute'});
-					        		       $("#containment-wrapper").css({'background-image':'url('+ img.src +')', 'width': '50%', 'height': '50%', position:'absolute'});
+					        		       $(".containment-wrapper").css({'background-image':'url('+ img.src +')', 'width': '90%', 'height': '75%', position:'absolute'});
 					        		       
 					        		    }
 						        		 img.src = ""+ json.caminhoImagem +"";
