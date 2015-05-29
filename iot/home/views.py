@@ -46,14 +46,18 @@ def equipamentos(request, *args, **kwargs):
     TITULO = _(u'Internet das Coisas')
     
     template = Template.objects.filter(id = idTemplate).order_by('name')
+    
+    
     for i in template:
+        
+        
         for j in i.equipment.all():
-            print'EQUIPAMENTO: ', i.id
+            print'EQUIPAMENTO: ', i.id, "----", j
 
-            equipamentos = Equipment.objects.filter(id = i.id).order_by('name')
+            equipamentos = Equipment.objects.filter(id = j.id).order_by('name')
             
             for i in equipamentos:
-                print'TEMPLATE: ', i.name
+                print 'TEMPLATE: ', i.name
             
             
             #===========================================================================
@@ -89,10 +93,8 @@ def equipamentos(request, *args, **kwargs):
                 dictEquip["sensores"] = lSensor
                 response_data.append(dictEquip)
         
-        
     print json.dumps(response_data)
-    
-    #return HttpResponse(retorno, mimetype="text/javascript")
+
     return HttpResponse(json.dumps(response_data), content_type = "application/json")
 
 @csrf_exempt

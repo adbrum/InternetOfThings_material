@@ -188,7 +188,7 @@ img{
 		function selecionar(id_template){
 			$( document ).tooltip();
 			//var id_template = id;
-
+			
 			console.log('#someButton was clicked');
 			$.ajax({
 				type : "POST",
@@ -196,7 +196,9 @@ img{
 				//dataType : "json",
 				//data: {};
 				success : function(retorno) {
+					console.log(":::::::");
 					console.log(retorno);
+					console.log("------");
 					
 					$.each(retorno, function(i, item_equip) {
 						console.log("Nome - equipamento "+ item_equip.nomeEquipamento);
