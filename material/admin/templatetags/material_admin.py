@@ -212,6 +212,6 @@ def date_hierarchy(cl):
 @stringfilter
 def custom_app_label(value):
     custom_app_labels = {
-        'Auth':  _("Contas dos utilizadores"),
+        'Auth':  _("Authentication and Authorization"),
     }
     return custom_app_labels.get(value, value)

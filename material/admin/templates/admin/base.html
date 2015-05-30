@@ -26,7 +26,7 @@
     </head>
     {% load i18n %}
 
-    <body style="text-align: left;">
+    <body>
         {% if user.is_authenticated %}
         <ul id="user-menu" class="dropdown-content">
             {% block user_menu %}
@@ -60,7 +60,7 @@
                     {% block breadcrumbs_left %}
                     {% block back_link %}<li class="no-padding"><a class="collapsible-header no-pjax" href="/"><i class="mdi-navigation-arrow-back"></i> Voltar para o inicio</a></li>{% endblock %}
                     <li class="no-padding active">
-                        <a class="collapsible-header active no-pjax" href="/admin/"><i class="mdi-action-settings-applications"></i>Administração</a>
+                        <a class="collapsible-header active no-pjax" href="/admin/"><i class="mdi-action-settings-applications"></i>Gestão</a>
                         <div class="collapsible-body" style="display:block">
                             <ul class="collapsible" data-collapsible="accordion">
                                 {% get_app_list request as app_list %}

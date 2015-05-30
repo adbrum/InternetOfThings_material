@@ -5,36 +5,49 @@
 	<a href="#"><i class="fa adm-app-default adm-iot-sensor"></i> &nbsp;&nbsp;Equipamentos</a>
 {% endblock %} 
 {% block content %}
-<body>
 <html>
-<div class="container" style="text-align: left;">
-	<div class="card" >
-		<div class="card-content">
-			<div class="input-field col s12 m6 l6 ">
-			    <table id="tabelaLista">
-					<thead>
-						<tr>
-							<th>{%	trans "ID" %}</th>
-							<th>{%	trans "Equipamento/Sensor" %}</th>
-						</tr>
-					</thead>
-					<tbody>
-						{% for equipamento in equipamentos %}
-							{% for sensor in lSensor %}
-							<tr >
-								<td><a href="/sensor/sensor/{{ sensor.sensor_id }}" >{{ sensor.sensor_id }}</a></td>
-								<td><a href="/sensor/sensor/{{ sensor.sensor_id }}" >{{ equipamento.name }} - {{ sensor.nome_sensor }}</a></td>
+<body style="text-align: left;">
+
+<div class="row">
+    <div class="col s12 m8 l9">
+        <div class="card">
+            <div class="card-content">
+				    <div>
+				        <table id="tabelaLista">
+						<thead>
+							<tr>
+								<th>{%	trans "ID" %}</th>
+								<th>{%	trans "Equipamento/Sensor" %}</th>
 							</tr>
-							{% endfor %}
-						{% endfor %}
-					</tbody>
-				</table>
+						</thead>
+							<tbody>
+								{% for equipamento in equipamentos %}
+									{% for sensor in lSensor %}
+									<tr >
+										<td><a href="/sensor/sensor/{{ sensor.sensor_id }}" >{{ sensor.sensor_id }}</a></td>
+										<td><a href="/sensor/sensor/{{ sensor.sensor_id }}" >{{ equipamento.name }} - {{ sensor.nome_sensor }}</a></td>
+									</tr>
+									{% endfor %}
+								{% endfor %}
+							</tbody>
+						</table>
+					</div>
 			</div>
-		</div>
-	</div>	
+        </div>
+	</div>
+    <div class="col s12 m4 l3">
+        <div class="card filters">
+            <div class="card-content">
+                <span class="card-title black-text" style="margin-bottom:20px">Filters</span>
+                 <div class="clearfix"></div>
+            </div>
+            <div class="card-action">&nbsp;</div>
+        </div>
+    </div>
 </div>
-</html>
+
 </body>
+</html>
 
 {% endblock %}
 {% block endJs %}
