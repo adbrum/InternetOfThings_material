@@ -38,17 +38,6 @@ TEMPLATE_CONTEXT_PROCESSORS = global_settings.TEMPLATE_CONTEXT_PROCESSORS + (
 BOOTSTRAP_ADMIN_SIDEBAR_MENU = True
 
 
-# TEMPLATE_DIRS = (
-#     os.path.join(os.path.dirname(__file__), 'templates'),
-# )
-
-TEMPLATE_DIRS = (
-    'templates',
-    # Put strings here, like "/home/html/django_templates" or "C:/www/django/templates".
-    # Always use forward slashes, even on Windows.
-    # Don't forget to use absolute paths, not relative paths.
-)
-
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
@@ -74,7 +63,7 @@ INSTALLED_APPS = (
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'iot',
-    #'processor',
+
 )
 
 MIDDLEWARE_CLASSES = (
@@ -89,6 +78,36 @@ MIDDLEWARE_CLASSES = (
     'django.middleware.locale.LocaleMiddleware',
     'admin_reorder.middleware.ModelAdminReorder',
 )
+
+ROOT_URLCONF = 'internet_of_things.urls'
+
+
+TEMPLATE_DIRS = (
+     BASE_DIR + '/templates/',
+)
+
+
+TEMPLATES = [
+    {
+        'BACKEND': 'django.template.backends.django.DjangoTemplates',
+        'DIRS': [#'/var/www/material/InternetOfThings_material/templates',
+		'/var/www/material/InternetOfThings_material/material/admin/templates/',
+		 '/var/www/material/InternetOfThings_material/material/templates/',
+		 '/var/www/material/lib/python2.7/site-packages/django/contrib/admin/templates'
+		],
+        'APP_DIRS': False,
+        'OPTIONS': {
+            'context_processors': [
+                'django.template.context_processors.debug',
+                'django.template.context_processors.request',
+                'django.contrib.auth.context_processors.auth',
+                'django.contrib.messages.context_processors.messages',
+                #'material.frontend.context_processors.modules',
+            ],
+        },
+    },
+]
+
 
 ADMIN_REORDER = (
     # Keep original label and models
@@ -190,14 +209,15 @@ MEDIA_ROOT = os.path.join(BASE_DIR, "iot")
 # trailing slash.
 # Examples: "http://example.com/media/", "http://media.example.com/"
 #MEDIA_URL = 'http://192.168.5.82:8002/static/'
-MEDIA_URL = 'http://192.168.5.84:8000/static/'
+MEDIA_URL = 'http://127.0.0.1:8000/static/'
 
 # Absolute path to the directory static files should be collected to.
 # Don't put anything in this directory yourself; store your static files
 # in apps' "static/" subdirectories and in STATICFILES_DIRS.
 # Example: "/var/www/example.com/static/"
 #STATIC_ROOT = '/home/Gestsport/opt/GestVisitor_0_1/gestvisitor/static/'
-STATIC_ROOT = os.path.join(BASE_DIR, "static/")
+#STATIC_ROOT = os.path.join(BASE_DIR, "static/")
+STATIC_ROOT = "/var/www/material/InternetOfThings_material/iot/static/"
 #DIR_IMPORT = "/home/Gestsport/opt/GestVisitor_0_1/import/"
 
 # URL prefix for static files.

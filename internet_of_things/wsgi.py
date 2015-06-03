@@ -8,6 +8,9 @@ https://docs.djangoproject.com/en/1.7/howto/deployment/wsgi/
 """
 
 import os
+import sys
+
+sys.path.append('/var/www/material/InternetOfThings_material')
 os.environ.setdefault("DJANGO_SETTINGS_MODULE", "internet_of_things.settings")
 
 from django.core.wsgi import get_wsgi_application
