@@ -24,17 +24,17 @@ from iot.models import Equipment, Sensor, RelativePosition, Template, ReadData
 @csrf_exempt
 def saveData(request, *args, **kwargs):
     """
-    Salva na base de dados informações sobre Temperatura e Humidade recebidas de um ficheiro python executado no Unirest.    
+    Salva na base de dados informações sobre Temperatura e Hhumidade recebidas de um ficheiro python executado no Unirest.    
     """
     
     TITULO = _(u'Internet das Coisas')
 
     if request.method == 'POST':
         temperatura = request.POST['temperatura']
-        umidade = request.POST['umidade']
+        humidade = request.POST['humidade']
 
         tableReadData = ReadData(temperature = temperatura,
-                                 humidity = umidade,
+                                 humidity = humidade,
                                  )
         tableReadData.save()
         return HttpResponse(json.dumps({'done':True}), content_type = "application/json")
