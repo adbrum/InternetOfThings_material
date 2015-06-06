@@ -261,6 +261,8 @@ class RelativePosition(models.Model):
     nameElement = models.CharField(max_length=100)
     leftX = models.FloatField(default=0.0)
     topY = models.FloatField(default=0.0)
+    width = models.FloatField(default=0.0)
+    height = models.FloatField(default=0.0)
     
 class Template(models.Model):
     name = models.CharField(max_length=100, verbose_name='Nome do Template')

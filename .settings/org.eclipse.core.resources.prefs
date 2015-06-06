@@ -1,5 +1,6 @@
 eclipse.preferences.version=1
 encoding//internet_of_things/settings.py=utf-8
+encoding//internet_of_things/settings_old.py=utf-8
 encoding//internet_of_things/urls.py=utf-8
 encoding//iot/__init__.py=utf-8
 encoding//iot/apps.py=utf-8

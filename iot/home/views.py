@@ -108,12 +108,12 @@ def getEquipmentPosition(request):
     response_data = []
     
     for item in posicao:
+        
        
         response_data.append({"nome":item.nameElement,
                               "X":item.leftX,
                               "Y":item.topY})
-    
-    
+
     return HttpResponse(json.dumps(response_data), content_type = "application/json")
 
 @csrf_exempt
@@ -128,6 +128,9 @@ def addEquipmentPosition(request):
     for equipamento, valores in dados.iteritems():
         print "EQUIPAMENTO ", equipamento, "VALORES", valores
         dict = {"topY": valores["y"], "leftX":valores["x"]}
+        #dict = {"topY": valores["y"], "leftX":valores["x"], "height": valores["height"], "width":valores["width"]}
+        
+        print "DICIONARIO ", dict
           
         posicaoTable = RelativePosition.objects.update_or_create(nameElement = equipamento,
                                         defaults=dict

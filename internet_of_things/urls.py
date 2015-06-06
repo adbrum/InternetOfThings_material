@@ -6,14 +6,12 @@
 """
 from django.conf.urls import patterns, include, url
 from django.contrib import admin
+from django.http.response import HttpResponseRedirect
 
 
 urlpatterns = patterns('',
+                       url(r'^$', lambda x: HttpResponseRedirect('/admin/')),
                        url(r'^admin/', include(admin.site.urls)),
-                       url(r'^$', include('iot.home.urls')),
-                       #url(r'^login/$', 'django.contrib.auth.views.login'),
-                       #url(r'^baseDados/', include('iot.baseDados.urls')),
-                       #url(r'^login/', include('iot.login.urls')),
                        url(r'^home/', include('iot.home.urls')),
                        url(r'^sensor/', include('iot.sensor.urls')),
                        url(r'^equipments/', include('iot.equipment.urls')),
