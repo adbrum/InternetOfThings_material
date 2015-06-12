@@ -2,7 +2,7 @@
 """
 :Autor: Adriano Leal
 :Aluno: 11951
-:email: l911911951@alunos.ipbeja.pt
+:email: 911911951@alunos.ipbeja.pt
 """
 
 import json
@@ -25,26 +25,22 @@ def index(request):
     """
     Página principal do utilizador
     """
-    
-    TITULO = _(u'Internet das Coisas')
-  
+
     template = "home/index.html"
     return render_to_response(template,
                               locals(),
                               context_instance=RequestContext(request)
                               )
 
-#@login_required
+
 @csrf_exempt
 def equipamentos(request, *args, **kwargs):
     """
-    Lista todos os equipamentos com os seus sensores que foram inseridos no sistema
+    Lista todos os equipamentos e sensores que foram inseridos no sistema
     """
     
     idTemplate = kwargs['idTemplate']
 
-    TITULO = _(u'Internet das Coisas')
-    
     template = Template.objects.filter(id = idTemplate).order_by('name')
     
     
@@ -52,22 +48,8 @@ def equipamentos(request, *args, **kwargs):
         
         
         for j in i.equipment.all():
-            print'EQUIPAMENTO: ', i.id, "----", j
-
             equipamentos = Equipment.objects.filter(id = j.id).order_by('name')
-            
-            for i in equipamentos:
-                print 'TEMPLATE: ', i.name
-            
-            
-            #===========================================================================
-            # response_data = [{"equipamento_id":1, "nomeEquipamento":"EquipSEI_LA", "sensores":[{"sensor_id":2, "nome_sensor":"OLA"}]},
-            #  {"equipamento_id":2, "nomeEquipamento":"EquipSEI_LA", "sensores":[{"sensor_id":2, "nome_sensor":"OLA"}]},
-            #  {"equipamento_id":3, "nomeEquipamento":"EquipSEI_LA", "sensores":[{"sensor_id":2, "nome_sensor":"OLA"}]}
-            #  ]
-            #===========================================================================
-            
-            
+
             response_data = []
             
             for equipamento in equipamentos:
@@ -80,22 +62,12 @@ def equipamentos(request, *args, **kwargs):
                     dictSensor =  {"sensor_id":s.id,
                                    "nome_sensor":s.name}
                     lSensor.append(dictSensor)
-                    print s.name
-                    '''
-                    response_data.append(
-                                   {"equipamento_id":equipamento.id,
-                                     "nomeEquipamento":equipamento.name,
-                                     "sensores":[{"sensor_id":s.id,
-                                                  "nome_sensor":s.name}]
-                                    })
-                    '''
                     
                 dictEquip["sensores"] = lSensor
                 response_data.append(dictEquip)
-        
-    print json.dumps(response_data)
 
     return HttpResponse(json.dumps(response_data), content_type = "application/json")
+
 
 @csrf_exempt
 def getEquipmentPosition(request):
@@ -108,13 +80,12 @@ def getEquipmentPosition(request):
     response_data = []
     
     for item in posicao:
-        
-       
         response_data.append({"nome":item.nameElement,
                               "X":item.leftX,
                               "Y":item.topY})
 
     return HttpResponse(json.dumps(response_data), content_type = "application/json")
+
 
 @csrf_exempt
 def addEquipmentPosition(request):
@@ -124,19 +95,16 @@ def addEquipmentPosition(request):
     
     #Recebe a string pelo POST e a transforma em objeto.
     dados = json.loads(request.POST.get('dados'))
-    print "AQUI", dados
+
     for equipamento, valores in dados.iteritems():
-        print "EQUIPAMENTO ", equipamento, "VALORES", valores
         dict = {"topY": valores["y"], "leftX":valores["x"]}
-        #dict = {"topY": valores["y"], "leftX":valores["x"], "height": valores["height"], "width":valores["width"]}
-        
-        print "DICIONARIO ", dict
           
         posicaoTable = RelativePosition.objects.update_or_create(nameElement = equipamento,
                                         defaults=dict
                                         )
     
     return HttpResponse(content_type = "application/json")
+
 
 
 @csrf_exempt
@@ -162,7 +130,6 @@ def getTemplate(request, *args, **kwargs):
         response_data = []
         
         for item in template:
-            print 'TEMPLATE: ',item.name
             response_data.append({"id":item.id,
                                   "nome":item.name,
                                   "caminhoImagem":str(item.imagePath)})

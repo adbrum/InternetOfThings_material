@@ -2,7 +2,7 @@
 """
 :Autor: Adriano Leal
 :Aluno: 11951
-:email l911911951@alunos.ipbeja.pt
+:email: 911911951@alunos.ipbeja.pt
 """
 
 from django.contrib.auth.models import User, Group
@@ -17,15 +17,11 @@ from django.views.decorators.csrf import csrf_protect
 from iot.models import Sensor, ReadData
 
 
-#from forms import AddEquipmentForm, FichaEquipmentForm
-#from iot.models import Equipment, PhysicalCharacteristic, Voltage, Memory
 def listSensors(request):
     """
-    Lista todos os sensores de um equipamento registrado
+    Lista todos os sensores registados de um equipamento.
     """
-    
-    TITULO = _(u'Equipamentos')
-    
+   
     try:
         sensores = Sensor.objects.all().order_by('name')
         tamLista = len(sensores)
@@ -39,23 +35,18 @@ def listSensors(request):
                               )
 
 
-#@csrf_exempt
+
 def sensor(request, *args, **kwargs):
-    
-    print'XXXXXXXXXXXXXXXXXXX: ',
+    """
+    Realiza uma consulta na base de dados retornando os dados do sensor.
+    """
     
     idSensor = kwargs["idSensor"]
     
-    print'XXXXXXXXXXXXXXXXXXX ID SENSOR: ', idSensor
-    
-    #sensor = Sensor.objects.get(id = idSensor)
-    
-    #print'SENSOR DATA Sensor ID XXXXXXXXXXXXXXXXXXX: ', sensor.id
     if request.method == 'GET':
         try:
             sensorData = ReadData.objects.get(sensorId = idSensor)
-        
-            print'SENSOR DATA Sensor ID XXXXXXXXXXXXXXXXXXX: ', sensorData.sensorId
+
             idSensor = int(sensorData.sensorId)
             temp = int(sensorData.temperature)
             hum = int(sensorData.humidity)
@@ -67,10 +58,5 @@ def sensor(request, *args, **kwargs):
                               locals(),
                               context_instance=RequestContext(request)
                               )
-    #===========================================================================
-    # template = "sensor/index.html"
-    # return render_to_response(template,
-    #                           locals(),
-    #                           context_instance=RequestContext(request))
-    #===========================================================================
+
 

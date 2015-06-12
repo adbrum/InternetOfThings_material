@@ -1,11 +1,7 @@
 {% extends "admin/base.html" %} {% load i18n admin_static %}
 {% block breadcrumbs_items %}
-
-
 	<a href="/admin/">Todos os Aplicativos</a> ⟩
 	<a href="#"><i class="fa adm-app-default adm-auth-user"></i> &nbsp;&nbsp;Monitor</a>
-
-
 {% endblock %} 
 {% block content %}
 
@@ -103,7 +99,7 @@ img{
 </html>
 <script type="text/javascript">
 	$(document).ready(function() {
-		//$("span").hide();
+
 		var idSensor;
 		
 		$( "#g1" ).hide();
@@ -141,9 +137,6 @@ img{
 				  if(this.value){
 					  var id_template = this.value;
 					  $( "#containment-wrapper" ).empty();
-					 // selectAnterior = this.value;
-					  //alert(this.value)
-					  
 					  
 					  $.ajax({
 					         type: "POST",
@@ -158,16 +151,10 @@ img{
 					        		       var height = this.height,
 					        		           width = this.width;
 					        		      
-					        		       //$("#containment-wrapper").css({'background-image':'url('+ img.src +')', 'width': img.width+'px', 'height': img.height+'px', position:'absolute'});
-					        		       //$(".containment-wrapper").css({'background-image':'url('+ img.src +')', 'width': '90%', 'height': '75%', position:'absolute'});
 					        		       $(".containment-wrapper").css({'width': '90%', 'height': '75%', position:'absolute'});
 					        		       $("#containment-wrapper").append(img);
 					        		    }
 						        		 img.src = "/"+ json.caminhoImagem +"";
-					        		 //alert(img.src);
-							          
-							            //$("#containment-wrapper").css({'background-image':'url('+ img.src +')', 'width': img.width+'px', 'height': img.height+'px', position:'absolute'});
-							  			//$("#containment-wrapper").css({"width": img.width+"px", "height": img.height+"px", position:'absolute'});
 					         }
 					      });
 					  
@@ -187,8 +174,6 @@ img{
 			$.ajax({
 				type : "POST",
 				url : "/home/equipamentos/" + id_template + "/",
-				//dataType : "json",
-				//data: {};
 				success : function(retorno) {
 					console.log(":::::::");
 					console.log(retorno);
@@ -212,14 +197,9 @@ img{
 										"<div data-toggle='tooltip' data-placement='top' title='Sensor: "+ item_sensor.nome_sensor +" - "+ item_equip.nomeEquipamento + "' style='width: 4%; height: auto; border: 0px solid #ccc; '"
 										
 										+ "id='" + "sensor_" + item_equip.equipamento_id + "_" + item_sensor.sensor_id + "' class='draggable ui-widget-content'>"
-											// +"<img src='/static/img/sensor01.png' /></a>"
 											 +"<a href='/sensor/sensor/" + item_sensor.sensor_id + "'><img src='/static/img/sensor01.png' /></a>"
-											 //+"<a href='/sensorData/load/'><img src='/static/img/sensor01.png' /></a>"
-											 //+"<a href='#'><img src='/static/img/sensor01.png' /></a>"
 								      + "</div>"	 
 								);
-								
-								
 																		
 								$("#sensor_" + item_equip.equipamento_id + "_" + item_sensor.sensor_id).draggable({
 										
@@ -232,9 +212,7 @@ img{
 									  $( "#g1" ).hide();
 									  $( "#g2" ).hide();
 								}).click(idSensor = item_sensor.sensor_id);
-								
-								//console.log('ITEM SENSOR: '+id_sensor = item_sensor.sensor_id);
-		
+										
 							});
 								
 						$("#equip_" + item_equip.equipamento_id).draggable({
@@ -262,8 +240,6 @@ img{
 			  		console.log(posicao);
 			  		  
 			  		$.each(posicao, function(i, item){
-			  			//console.log("#"+item.nome);
-			  			
 			  			$("#" + item.nome).css({"top": item.Y +"px", "left": item.X +"px", position:'absolute'})
 			  	      .addClass("selecionado");
 			  			
@@ -304,11 +280,8 @@ img{
 			
 			
 			var temp = 0;
-			  var hum = 50;
-			// set interval
-			
-			
-			
+			var hum = 50;
+
 			function mycode() {
 			$.ajax({
 				  type: "POST",
@@ -335,7 +308,6 @@ img{
 		          value: temp,
 		          min: -100,
 		          max: 100,
-		          //gaugeColor : "#323232",
 		          title: "Temperatura",
 		          label: "ºC"
 		        

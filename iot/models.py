@@ -1,8 +1,8 @@
 # -*- coding: utf-8 -*-
 """
-Nome Autor: Adriano Leal
-nº Aluno: 11951
-911911951@alunos.ipbeja.pt
+:Autor: Adriano Leal
+:Aluno: 11951
+:email: 911911951@alunos.ipbeja.pt
 """
 from datetime import datetime
 from django.contrib.auth.models import User
@@ -12,6 +12,7 @@ from django.utils.translation import ugettext_lazy as _
 
 from audit_log.models.fields import CreatingUserField, LastUserField
 from internet_of_things.settings import MEDIA_ROOT
+
 
 class Microcomputer(models.Model):
     name = models.CharField(max_length=100, verbose_name='Nome')
@@ -107,7 +108,6 @@ class Microcontroller(models.Model):
         return self.type
     
     class Meta:
-        # ordering = ['pk']
         verbose_name = 'Microcontrolador'
         verbose_name_plural = 'Microcontroladores'
 
@@ -267,7 +267,6 @@ class RelativePosition(models.Model):
 class Template(models.Model):
     name = models.CharField(max_length=100, verbose_name='Nome do Template')
     imagePath = models.FileField(upload_to="static/img", blank=True)
-    # imagePath = models.CharField(max_length=200, verbose_name='Imagem')
     equipment = models.ManyToManyField('Equipment', verbose_name='Equipamentos')
     
     def __unicode__(self):
@@ -278,6 +277,5 @@ class ReadData(models.Model):
     sensorId = models.IntegerField()
     temperature = FloatField(verbose_name='Temperatura')
     humidity = FloatField(verbose_name='Humidade')
-    #pressure = FloatField()
     dateTimeCreation = models.DateTimeField(auto_now_add=True)
     

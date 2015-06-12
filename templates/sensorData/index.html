@@ -50,10 +50,11 @@
 </html>
 <script type="text/javascript">
 	$(document).ready(function() {
+		
 		var temp = 0;
-		  var hum = 50;
-		// set interval
+  		var hum = 50;
 		var idSensor = $("#idSensor").val();
+		
 		function mycode() {
 		$.ajax({
 			  type: "POST",
@@ -62,9 +63,6 @@
 			  data: {},
 			  dataType: "json",
 			  success: function(json){
-				  //console.log(json[0])
-				  //console.log("Caminho: "+ json[0].sensorData_temp);
-				  
 				  temp = json[0].sensorData_temp;
 				  hum = json[0].sensorData_hum;
 			  }
@@ -80,7 +78,6 @@
 	          value: temp,
 	          min: -100,
 	          max: 100,
-	          //gaugeColor : "#323232",
 	          title: "Temperatura",
 	          label: "ºC"
 	        
