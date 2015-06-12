@@ -30,11 +30,15 @@ def saveData(request, *args, **kwargs):
     TITULO = _(u'Internet das Coisas')
 
     if request.method == 'POST':
+        sensor_id = request.POST['sensorId']
         temperatura = request.POST['temperatura']
         humidade = request.POST['humidade']
+        
+        print'SENSOR ID: ',sensor_id
 
-        tableReadData = ReadData(temperature = temperatura,
-                                 humidity = humidade,
+        tableReadData = ReadData(sensorId = sensor_id,
+                                 temperature = temperatura,
+                                 humidity = humidade
                                  )
         tableReadData.save()
         return HttpResponse(json.dumps({'done':True}), content_type = "application/json")
@@ -48,23 +52,33 @@ def loadData(request, *args, **kwargs):
     """
     Salva na base de dados informações sobre Temperatura e Umidade recebidas de um ficheiro python executado no Unirest.    
     """
+    #idSensor = request.POST.get('idSensor')
+    idSensor = kwargs["idSensor"]
+    print "ID SENSOR VVVV1V", idSensor
     
     TITULO = _(u'Internet das Coisas')
 
-    if request.method == 'GET':
+    if request.method == 'POST':
         
         response_data = []
+        lastItem = []
          
-        sensorData = ReadData.objects.latest('id')
-        print'SENSOR DATA', sensorData.temperature
+        #sensorData = ReadData.objects.latest('id')
+       # sensorData = ReadData.objects.get(sensorId=idSensor)
+        sensorData = ReadData.objects.filter(sensorId=idSensor)
+        #sensorData = sorted(sensorData.keys())[-1]
+        
+        #print'SENSOR DATA', sensorData.temperature
         #temp = int(sensorData.temperature)
         #hum = int(sensorData.humidity)
+        for sensorData in sensorData:
         
-        
-        response_data.append({"sensorData_temp":int(sensorData.temperature),
+            lastItem.append({"sensorData_temp":int(sensorData.temperature),
                             "sensorData_hum":int(sensorData.humidity)})
         
-        print"RESPONSE", response_data
+        response_data.append(getattr(lastItem,  '__getitem__')(-1)) #This will return to you the last element as well    
+        
+        print"RESPONSE", getattr(lastItem,  '__getitem__')(-1) #This will return to you the last element as well
         
        
         #response_data.append(dictSensorData)

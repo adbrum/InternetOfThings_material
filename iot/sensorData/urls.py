@@ -10,7 +10,7 @@ from iot import *
 
 urlpatterns = patterns('',
                        url(r'^save/$', 'iot.sensorData.views.saveData', name="saveData"),
-                       url(r'^load/$', 'iot.sensorData.views.loadData', name="loadData"),
+                       url(r'^load/(?P<idSensor>\d+)/$', 'iot.sensorData.views.loadData', name="loadData"),
                        
                        #^r/(?P<content_type_id>\d+)/(?P<object_id>.+)/$ [name='view_on_site']
                        )

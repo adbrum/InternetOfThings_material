@@ -7,7 +7,7 @@ nº Aluno: 11951
 from datetime import datetime
 from django.contrib.auth.models import User
 from django.db import models
-from django.db.models.fields import FloatField
+from django.db.models.fields import FloatField, IntegerField
 from django.utils.translation import ugettext_lazy as _
 
 from audit_log.models.fields import CreatingUserField, LastUserField
@@ -275,6 +275,7 @@ class Template(models.Model):
     
     
 class ReadData(models.Model):
+    sensorId = models.IntegerField()
     temperature = FloatField(verbose_name='Temperatura')
     humidity = FloatField(verbose_name='Humidade')
     #pressure = FloatField()

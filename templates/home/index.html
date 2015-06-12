@@ -104,6 +104,8 @@ img{
 <script type="text/javascript">
 	$(document).ready(function() {
 		//$("span").hide();
+		var idSensor;
+		
 		$( "#g1" ).hide();
 		$( "#g2" ).hide();
 		
@@ -179,7 +181,7 @@ img{
 	
 		function selecionar(id_template){
 			$( document ).tooltip();
-			//var id_template = id;
+			
 			
 			console.log('#someButton was clicked');
 			$.ajax({
@@ -216,7 +218,9 @@ img{
 											 //+"<a href='#'><img src='/static/img/sensor01.png' /></a>"
 								      + "</div>"	 
 								);
-										
+								
+								
+																		
 								$("#sensor_" + item_equip.equipamento_id + "_" + item_sensor.sensor_id).draggable({
 										
 										containment : "#containment-wrapper",
@@ -227,7 +231,9 @@ img{
 								}).mouseleave(function() {
 									  $( "#g1" ).hide();
 									  $( "#g2" ).hide();
-								});;
+								}).click(idSensor = item_sensor.sensor_id);
+								
+								//console.log('ITEM SENSOR: '+id_sensor = item_sensor.sensor_id);
 		
 							});
 								
@@ -305,8 +311,9 @@ img{
 			
 			function mycode() {
 			$.ajax({
-				  type: "GET",
-				  url: "{% url 'loadData' %}",
+				  type: "POST",
+				  url: "/sensorData/load/" + idSensor + "/",
+				  
 				  data: {},
 				  dataType: "json",
 				  success: function(json){

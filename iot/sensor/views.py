@@ -42,17 +42,21 @@ def listSensors(request):
 #@csrf_exempt
 def sensor(request, *args, **kwargs):
     
+    print'XXXXXXXXXXXXXXXXXXX: ',
+    
     idSensor = kwargs["idSensor"]
     
+    print'XXXXXXXXXXXXXXXXXXX ID SENSOR: ', idSensor
     
-    sensor = Sensor.objects.get(id = idSensor)
+    #sensor = Sensor.objects.get(id = idSensor)
     
-    
+    #print'SENSOR DATA Sensor ID XXXXXXXXXXXXXXXXXXX: ', sensor.id
     if request.method == 'GET':
         try:
-            sensorData = ReadData.objects.latest('id')
+            sensorData = ReadData.objects.get(sensorId = idSensor)
         
-            print'SENSOR DATA', 
+            print'SENSOR DATA Sensor ID XXXXXXXXXXXXXXXXXXX: ', sensorData.sensorId
+            idSensor = int(sensorData.sensorId)
             temp = int(sensorData.temperature)
             hum = int(sensorData.humidity)
         except:

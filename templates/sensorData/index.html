@@ -45,7 +45,7 @@
 		</div>
 	</div>	
 </div>
-
+<input type="hidden" id = "idSensor" value="{{idSensor}}">
 </body>
 </html>
 <script type="text/javascript">
@@ -53,10 +53,12 @@
 		var temp = 0;
 		  var hum = 50;
 		// set interval
+		var idSensor = $("#idSensor").val();
 		function mycode() {
 		$.ajax({
-			  type: "GET",
-			  url: "{% url 'loadData' %}",
+			  type: "POST",
+			  url: "/sensorData/load/" + idSensor + "/",
+			  
 			  data: {},
 			  dataType: "json",
 			  success: function(json){
