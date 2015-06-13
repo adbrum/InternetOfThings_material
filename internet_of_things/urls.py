@@ -17,3 +17,6 @@ urlpatterns = patterns('',
                        url(r'^equipments/', include('iot.equipment.urls')),
                        url(r'^sensorData/', include('iot.sensorData.urls')),
                        )
+
+handler404 = 'views.custom_404'
+handler500 = 'views.custom_500'

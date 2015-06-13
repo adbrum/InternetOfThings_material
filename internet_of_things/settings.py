@@ -140,15 +140,6 @@ WSGI_APPLICATION = 'internet_of_things.wsgi.application'
 # Database
 # https://docs.djangoproject.com/en/1.7/ref/settings/#databases
 
-#===============================================================================
-# DATABASES = {
-#     'default': {
-#         'ENGINE': 'django.db.backends.sqlite3',
-#         'NAME': os.path.join(BASE_DIR, 'iot.db'),
-#     }
-# }
-#===============================================================================
-
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql_psycopg2',
@@ -160,18 +151,6 @@ DATABASES = {
     }
 }
 
-#===============================================================================
-# DATABASES = {
-#     'default': {
-#         'ENGINE': 'django.db.backends.mysql',
-#         'NAME': 'iot',
-#         'USER': 'root',
-#         'PASSWORD': 'root',
-#         'HOST': '127.0.0.1',  # Or an IP Address that your DB is hosted on
-#         'PORT': '',
-#     }
-# }
-#===============================================================================
 
 # ESQUEMA DE LOGIN
 AUTH_PROFILE_MODULE = 'InternetOfThings.login'

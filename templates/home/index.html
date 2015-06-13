@@ -66,9 +66,10 @@ img{
 			    </select>
 		    	<label>Selecione um Template</label>
 		    	<div>
-					<input id="save" name="Save" class="btn btn-primary" type="button" value="{%trans 'Guardar'%}">
+					<input id="save" name="Save" class="btn btn-primary" type="button" value="{%trans 'Guardar'%}" data-toggle='tooltip' data-placement='top' title='ID:'>
 					<input type="submit" formaction="/admin/iot/template/" id="novo" name="Novo" class="btn btn-primary" type="button" value="{%trans 'Novo'%}">
 				</div>
+				
 				</br>
 			</br>
 			<div class="row">
@@ -206,6 +207,7 @@ img{
 										containment : "#containment-wrapper",
 										scroll : false
 								}).mouseenter(function() {
+									  idSensor = item_sensor.sensor_id
 									  $( "#g1" ).show();
 									  $( "#g2" ).show();
 								}).mouseleave(function() {
@@ -242,9 +244,6 @@ img{
 			  		$.each(posicao, function(i, item){
 			  			$("#" + item.nome).css({"top": item.Y +"px", "left": item.X +"px", position:'absolute'})
 			  	      .addClass("selecionado");
-			  			
-			  			
-			  			
 			  		});
 			  		
 			  	  }
@@ -274,8 +273,6 @@ img{
 						  //console.log(data)
 					  }
 				});
-			
-
 			});
 			
 			
