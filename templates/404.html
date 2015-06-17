@@ -1,12 +1,28 @@
 {% extends "admin/base.html" %}
-{% load i18n %}
+{% load i18n admin_static%}
+
+{% block breadcrumbs_items %}
+
+<a href="{% url 'admin:index' %}">{% trans 'Home' %}</a> ⟩
+&nbsp;&nbsp;{% trans 'Page not found' %}</a>
+
+{% endblock %}
 
 {% block title %}{% trans 'Page not found' %}{% endblock %}
 
 {% block content %}
 
-  <h2>{% trans 'Page not found' %}</h2>
-
-  <p>{% trans "We're sorry, but the requested page could not be found." %}</p>
+<div class="col s12 m4 l3">
+	<div class="card filters">
+        <div class="card-content">
+        	<div>
+    	    	<div style="text-align: center;">
+	        	    <h2>{% trans 'Page not found' %}</h2>
+  					<p>{% trans "We're sorry, but the requested page could not be found." %}</p>
+        	    </div>
+			</div>
+		</div>
+	</div>
+</div>
 
 {% endblock %}

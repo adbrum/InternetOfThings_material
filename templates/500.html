@@ -1,17 +1,28 @@
 {% extends "admin/base.html" %}
-{% load i18n %}
+{% load i18n admin_static%}
 
-{% block breadcrumbs %}
-<div class="breadcrumbs">
-<a href="{% url 'admin:index' %}">{% trans 'Home' %}</a>
-&rsaquo; {% trans 'Server error' %}
-</div>
+{% block breadcrumbs_items %}
+
+<a href="{% url 'admin:index' %}">{% trans 'Home' %}</a> ⟩
+&nbsp;&nbsp;{% trans 'Server error' %}
+
 {% endblock %}
 
 {% block title %}{% trans 'Server error (500)' %}{% endblock %}
 
 {% block content %}
-<h1>{% trans 'Server Error <em>(500)</em>' %}</h1>
-<p>{% trans "There's been an error. It's been reported to the site administrators via email and should be fixed shortly. Thanks for your patience." %}</p>
+
+<div class="col s12 m4 l3">
+	<div class="card filters">
+        <div class="card-content">
+        	<div>
+	        	<div style="text-align: center;">
+		            <h1>{% trans 'Server Error <em>(500)</em>' %}</h1>
+					<p>{% trans "There's been an error. It's been reported to the site administrators via email and should be fixed shortly. Thanks for your patience." %}</p>
+	            </div>
+			</div>
+		</div>
+	</div>
+</div>
 
 {% endblock %}
