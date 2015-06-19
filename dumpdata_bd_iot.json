@@ -1,0 +1,2086 @@
+[
+  {
+    "fields": {
+      "model": "module",
+      "name": "module",
+      "app_label": "frontend"
+    },
+    "model": "contenttypes.contenttype",
+    "pk": 1
+  },
+  {
+    "fields": {
+      "model": "logentry",
+      "name": "log entry",
+      "app_label": "admin"
+    },
+    "model": "contenttypes.contenttype",
+    "pk": 2
+  },
+  {
+    "fields": {
+      "model": "permission",
+      "name": "permission",
+      "app_label": "auth"
+    },
+    "model": "contenttypes.contenttype",
+    "pk": 3
+  },
+  {
+    "fields": {
+      "model": "group",
+      "name": "group",
+      "app_label": "auth"
+    },
+    "model": "contenttypes.contenttype",
+    "pk": 4
+  },
+  {
+    "fields": {
+      "model": "user",
+      "name": "user",
+      "app_label": "auth"
+    },
+    "model": "contenttypes.contenttype",
+    "pk": 5
+  },
+  {
+    "fields": {
+      "model": "contenttype",
+      "name": "content type",
+      "app_label": "contenttypes"
+    },
+    "model": "contenttypes.contenttype",
+    "pk": 6
+  },
+  {
+    "fields": {
+      "model": "session",
+      "name": "session",
+      "app_label": "sessions"
+    },
+    "model": "contenttypes.contenttype",
+    "pk": 7
+  },
+  {
+    "fields": {
+      "model": "microcomputer",
+      "name": "Microcomputador",
+      "app_label": "iot"
+    },
+    "model": "contenttypes.contenttype",
+    "pk": 8
+  },
+  {
+    "fields": {
+      "model": "sensor",
+      "name": "Sensor",
+      "app_label": "iot"
+    },
+    "model": "contenttypes.contenttype",
+    "pk": 9
+  },
+  {
+    "fields": {
+      "model": "physicalcharacteristic",
+      "name": "Característica Física",
+      "app_label": "iot"
+    },
+    "model": "contenttypes.contenttype",
+    "pk": 10
+  },
+  {
+    "fields": {
+      "model": "gpu",
+      "name": "GPU",
+      "app_label": "iot"
+    },
+    "model": "contenttypes.contenttype",
+    "pk": 11
+  },
+  {
+    "fields": {
+      "model": "processor",
+      "name": "Processador",
+      "app_label": "iot"
+    },
+    "model": "contenttypes.contenttype",
+    "pk": 12
+  },
+  {
+    "fields": {
+      "model": "microcontroller",
+      "name": "Microcontrolador",
+      "app_label": "iot"
+    },
+    "model": "contenttypes.contenttype",
+    "pk": 13
+  },
+  {
+    "fields": {
+      "model": "interface",
+      "name": "Interface",
+      "app_label": "iot"
+    },
+    "model": "contenttypes.contenttype",
+    "pk": 14
+  },
+  {
+    "fields": {
+      "model": "operatingsystem",
+      "name": "Sistema Operativo",
+      "app_label": "iot"
+    },
+    "model": "contenttypes.contenttype",
+    "pk": 15
+  },
+  {
+    "fields": {
+      "model": "expansion",
+      "name": "Expansão",
+      "app_label": "iot"
+    },
+    "model": "contenttypes.contenttype",
+    "pk": 16
+  },
+  {
+    "fields": {
+      "model": "accessory",
+      "name": "Acessório",
+      "app_label": "iot"
+    },
+    "model": "contenttypes.contenttype",
+    "pk": 17
+  },
+  {
+    "fields": {
+      "model": "memory",
+      "name": "Memória",
+      "app_label": "iot"
+    },
+    "model": "contenttypes.contenttype",
+    "pk": 18
+  },
+  {
+    "fields": {
+      "model": "voltage",
+      "name": "Voltagem",
+      "app_label": "iot"
+    },
+    "model": "contenttypes.contenttype",
+    "pk": 19
+  },
+  {
+    "fields": {
+      "model": "equipment",
+      "name": "Equipamento",
+      "app_label": "iot"
+    },
+    "model": "contenttypes.contenttype",
+    "pk": 20
+  },
+  {
+    "fields": {
+      "model": "relativeposition",
+      "name": "relative position",
+      "app_label": "iot"
+    },
+    "model": "contenttypes.contenttype",
+    "pk": 21
+  },
+  {
+    "fields": {
+      "model": "template",
+      "name": "template",
+      "app_label": "iot"
+    },
+    "model": "contenttypes.contenttype",
+    "pk": 22
+  },
+  {
+    "fields": {
+      "model": "readdata",
+      "name": "read data",
+      "app_label": "iot"
+    },
+    "model": "contenttypes.contenttype",
+    "pk": 23
+  },
+  {
+    "fields": {
+      "expire_date": "2015-06-29T13:05:28.691Z",
+      "session_data": "ZWMzMmUyN2E2YmU4NDM0MmI0M2YxNWE3ZTBkMTg3NTZmYWVkNzY1Yzp7Il9hdXRoX3VzZXJfaGFzaCI6IjVkMjA3YTExNTRjYmRlOGI4ZTdmYmIwODlhNjAxYWFhODNiNWY3NzUiLCJfYXV0aF91c2VyX2JhY2tlbmQiOiJkamFuZ28uY29udHJpYi5hdXRoLmJhY2tlbmRzLk1vZGVsQmFja2VuZCIsIl9hdXRoX3VzZXJfaWQiOjF9"
+    },
+    "model": "sessions.session",
+    "pk": "c4jqwbm75xayj79ri0r6spzwilejype7"
+  },
+  {
+    "fields": {
+      "expire_date": "2015-06-17T09:46:57.147Z",
+      "session_data": "NDg0OGVhMmRjMGI5NTgyZmJjMjliZDg2ZmFjMmI5MTg5YjExZjg2Yjp7fQ=="
+    },
+    "model": "sessions.session",
+    "pk": "dgtgo6ut9y4riok9ywx9guem4z96w9ci"
+  },
+  {
+    "fields": {
+      "expire_date": "2015-06-17T14:44:17.646Z",
+      "session_data": "ZWMzMmUyN2E2YmU4NDM0MmI0M2YxNWE3ZTBkMTg3NTZmYWVkNzY1Yzp7Il9hdXRoX3VzZXJfaGFzaCI6IjVkMjA3YTExNTRjYmRlOGI4ZTdmYmIwODlhNjAxYWFhODNiNWY3NzUiLCJfYXV0aF91c2VyX2JhY2tlbmQiOiJkamFuZ28uY29udHJpYi5hdXRoLmJhY2tlbmRzLk1vZGVsQmFja2VuZCIsIl9hdXRoX3VzZXJfaWQiOjF9"
+    },
+    "model": "sessions.session",
+    "pk": "h485hegm0yuhj5e369im89m035d2jhtj"
+  },
+  {
+    "fields": {
+      "expire_date": "2015-06-19T10:46:34.427Z",
+      "session_data": "ZWMzMmUyN2E2YmU4NDM0MmI0M2YxNWE3ZTBkMTg3NTZmYWVkNzY1Yzp7Il9hdXRoX3VzZXJfaGFzaCI6IjVkMjA3YTExNTRjYmRlOGI4ZTdmYmIwODlhNjAxYWFhODNiNWY3NzUiLCJfYXV0aF91c2VyX2JhY2tlbmQiOiJkamFuZ28uY29udHJpYi5hdXRoLmJhY2tlbmRzLk1vZGVsQmFja2VuZCIsIl9hdXRoX3VzZXJfaWQiOjF9"
+    },
+    "model": "sessions.session",
+    "pk": "khio5ogmnaoplaf2b9xh143o2ywn6gj9"
+  },
+  {
+    "fields": {
+      "expire_date": "2015-06-18T15:21:59.621Z",
+      "session_data": "ZWMzMmUyN2E2YmU4NDM0MmI0M2YxNWE3ZTBkMTg3NTZmYWVkNzY1Yzp7Il9hdXRoX3VzZXJfaGFzaCI6IjVkMjA3YTExNTRjYmRlOGI4ZTdmYmIwODlhNjAxYWFhODNiNWY3NzUiLCJfYXV0aF91c2VyX2JhY2tlbmQiOiJkamFuZ28uY29udHJpYi5hdXRoLmJhY2tlbmRzLk1vZGVsQmFja2VuZCIsIl9hdXRoX3VzZXJfaWQiOjF9"
+    },
+    "model": "sessions.session",
+    "pk": "vsc483xujlv1oyognbaf80k2rb9qkwlh"
+  },
+  {
+    "fields": {
+      "function": "Medir temperatura e umidade",
+      "model": "XPTO",
+      "serialNumber": "2545245245",
+      "name": "Temperarura/Umidade"
+    },
+    "model": "iot.sensor",
+    "pk": 1
+  },
+  {
+    "fields": {
+      "function": "Medir temperatura",
+      "model": "Product 15",
+      "serialNumber": "41216531",
+      "name": "Temperarura"
+    },
+    "model": "iot.sensor",
+    "pk": 2
+  },
+  {
+    "fields": {
+      "width": 53.4,
+      "microComputer": 1,
+      "length": 68.6,
+      "weight": 25
+    },
+    "model": "iot.physicalcharacteristic",
+    "pk": 1
+  },
+  {
+    "fields": {
+      "width": 53.3,
+      "microComputer": 2,
+      "length": 68.6,
+      "weight": 20
+    },
+    "model": "iot.physicalcharacteristic",
+    "pk": 2
+  },
+  {
+    "fields": {
+      "width": 53.3,
+      "microComputer": 3,
+      "length": 101.52,
+      "weight": 36
+    },
+    "model": "iot.physicalcharacteristic",
+    "pk": 3
+  },
+  {
+    "fields": {
+      "width": 53,
+      "microComputer": 4,
+      "length": 73,
+      "weight": 32
+    },
+    "model": "iot.physicalcharacteristic",
+    "pk": 4
+  },
+  {
+    "fields": {
+      "width": 56,
+      "microComputer": 21,
+      "length": 85,
+      "weight": 0
+    },
+    "model": "iot.physicalcharacteristic",
+    "pk": 5
+  },
+  {
+    "fields": {
+      "videoOutputs": "",
+      "audioOutputs": "",
+      "hdmi": "",
+      "audioInputs": "",
+      "digitalIOPins": 14,
+      "microComputer": 1,
+      "wifi": "",
+      "storage": "",
+      "videoInput": "",
+      "jack": "",
+      "USBPorts": "",
+      "analogInputPins": 6,
+      "GPIO": "",
+      "network": ""
+    },
+    "model": "iot.interface",
+    "pk": 1
+  },
+  {
+    "fields": {
+      "videoOutputs": "",
+      "audioOutputs": "",
+      "hdmi": "",
+      "audioInputs": "",
+      "digitalIOPins": 20,
+      "microComputer": 2,
+      "wifi": "",
+      "storage": "",
+      "videoInput": "",
+      "jack": "",
+      "USBPorts": "",
+      "analogInputPins": 12,
+      "GPIO": "",
+      "network": ""
+    },
+    "model": "iot.interface",
+    "pk": 2
+  },
+  {
+    "fields": {
+      "videoOutputs": "",
+      "audioOutputs": "",
+      "hdmi": "",
+      "audioInputs": "",
+      "digitalIOPins": 54,
+      "microComputer": 3,
+      "wifi": "",
+      "storage": "",
+      "videoInput": "",
+      "jack": "",
+      "USBPorts": "",
+      "analogInputPins": 2,
+      "GPIO": "",
+      "network": ""
+    },
+    "model": "iot.interface",
+    "pk": 3
+  },
+  {
+    "fields": {
+      "videoOutputs": "",
+      "audioOutputs": "",
+      "hdmi": "",
+      "audioInputs": "",
+      "digitalIOPins": 20,
+      "microComputer": 4,
+      "wifi": "IEEE 802.11b/g/n",
+      "storage": "Card Reader - Micro-SD",
+      "videoInput": "",
+      "jack": "",
+      "USBPorts": "",
+      "analogInputPins": 12,
+      "GPIO": "",
+      "network": "IEEE 802.3 10/100Mbit/s"
+    },
+    "model": "iot.interface",
+    "pk": 4
+  },
+  {
+    "fields": {
+      "videoOutputs": "Composite (PAL e NTSC), HDMI ou Raw LCD (DSI)",
+      "audioOutputs": "Conector de 3,5mm ou Audio sobre HDMI",
+      "hdmi": "HDMI (rev 1.3 & 1.4)",
+      "audioInputs": "As of revision 2 boards",
+      "digitalIOPins": 0,
+      "microComputer": 21,
+      "wifi": "",
+      "storage": "MicroSD",
+      "videoInput": "15-pin MIPI camera interface (CSI) connector, used with the Raspberry Pi camera or Raspberry Pi NoIR",
+      "jack": "",
+      "USBPorts": "",
+      "analogInputPins": 0,
+      "GPIO": "40",
+      "network": "10/100 Mbit/s Ethernet (8P8C) USB adapter on the third/fifth port of the USB hub (SMSC lan9514-jzx)"
+    },
+    "model": "iot.interface",
+    "pk": 5
+  },
+  {
+    "fields": {
+      "quantidadeFlashMemory": "KB",
+      "SRAM": 2,
+      "microComputer": 1,
+      "RAM": 0,
+      "quantidadeRAM": "KB",
+      "flashMemory": 32,
+      "EEPROM": 1
+    },
+    "model": "iot.memory",
+    "pk": 1
+  },
+  {
+    "fields": {
+      "quantidadeFlashMemory": "KB",
+      "SRAM": 2.5,
+      "microComputer": 2,
+      "RAM": 0,
+      "quantidadeRAM": "KB",
+      "flashMemory": 32,
+      "EEPROM": 1
+    },
+    "model": "iot.memory",
+    "pk": 2
+  },
+  {
+    "fields": {
+      "quantidadeFlashMemory": "KB",
+      "SRAM": 96,
+      "microComputer": 3,
+      "RAM": 0,
+      "quantidadeRAM": "KB",
+      "flashMemory": 512,
+      "EEPROM": 0
+    },
+    "model": "iot.memory",
+    "pk": 3
+  },
+  {
+    "fields": {
+      "quantidadeFlashMemory": "KB",
+      "SRAM": 2.5,
+      "microComputer": 4,
+      "RAM": 0,
+      "quantidadeRAM": "KB",
+      "flashMemory": 32,
+      "EEPROM": 1
+    },
+    "model": "iot.memory",
+    "pk": 4
+  },
+  {
+    "fields": {
+      "quantidadeFlashMemory": "KB",
+      "SRAM": 0,
+      "microComputer": 21,
+      "RAM": 512,
+      "quantidadeRAM": "KB",
+      "flashMemory": 0,
+      "EEPROM": 0
+    },
+    "model": "iot.memory",
+    "pk": 5
+  },
+  {
+    "fields": {
+      "IOCurrentMax": "6-20",
+      "inputVoltageRecommended": "7-12",
+      "DCCurrentfor3_3VPin": 50,
+      "microComputer": 1,
+      "operatingVoltage": 5,
+      "DCCurrentperIOPin": 0,
+      "powerRatings": "",
+      "powerSource": ""
+    },
+    "model": "iot.voltage",
+    "pk": 1
+  },
+  {
+    "fields": {
+      "IOCurrentMax": "6-20",
+      "inputVoltageRecommended": "7-12",
+      "DCCurrentfor3_3VPin": 50,
+      "microComputer": 2,
+      "operatingVoltage": 5,
+      "DCCurrentperIOPin": 0,
+      "powerRatings": "",
+      "powerSource": ""
+    },
+    "model": "iot.voltage",
+    "pk": 2
+  },
+  {
+    "fields": {
+      "IOCurrentMax": "6-16",
+      "inputVoltageRecommended": "7-12",
+      "DCCurrentfor3_3VPin": 800,
+      "microComputer": 3,
+      "operatingVoltage": 3.3,
+      "DCCurrentperIOPin": 0,
+      "powerRatings": "",
+      "powerSource": ""
+    },
+    "model": "iot.voltage",
+    "pk": 3
+  },
+  {
+    "fields": {
+      "IOCurrentMax": "0",
+      "inputVoltageRecommended": "5",
+      "DCCurrentfor3_3VPin": 50,
+      "microComputer": 4,
+      "operatingVoltage": 5,
+      "DCCurrentperIOPin": 0,
+      "powerRatings": "",
+      "powerSource": ""
+    },
+    "model": "iot.voltage",
+    "pk": 4
+  },
+  {
+    "fields": {
+      "IOCurrentMax": "3.3-5",
+      "inputVoltageRecommended": "5",
+      "DCCurrentfor3_3VPin": 0,
+      "microComputer": 21,
+      "operatingVoltage": 3.3,
+      "DCCurrentperIOPin": 0,
+      "powerRatings": "",
+      "powerSource": "600mA ate 1.8A"
+    },
+    "model": "iot.voltage",
+    "pk": 5
+  },
+  {
+    "fields": {
+      "leftX": 576,
+      "height": 951,
+      "nameElement": "sensor_1_1",
+      "topY": 344,
+      "width": 1666
+    },
+    "model": "iot.relativeposition",
+    "pk": 16
+  },
+  {
+    "fields": {
+      "leftX": 220,
+      "height": 951,
+      "nameElement": "equip_1",
+      "topY": 96,
+      "width": 1666
+    },
+    "model": "iot.relativeposition",
+    "pk": 18
+  },
+  {
+    "fields": {
+      "leftX": 199,
+      "height": 951,
+      "nameElement": "undefined",
+      "topY": 0,
+      "width": 1666
+    },
+    "model": "iot.relativeposition",
+    "pk": 19
+  },
+  {
+    "fields": {
+      "leftX": 287,
+      "height": 0,
+      "nameElement": "sensor_2_2",
+      "topY": 309,
+      "width": 0
+    },
+    "model": "iot.relativeposition",
+    "pk": 20
+  },
+  {
+    "fields": {
+      "leftX": 373,
+      "height": 0,
+      "nameElement": "equip_2",
+      "topY": 218,
+      "width": 0
+    },
+    "model": "iot.relativeposition",
+    "pk": 21
+  },
+  {
+    "fields": {
+      "leftX": 294,
+      "height": 0,
+      "nameElement": "sensor_2_1",
+      "topY": 128,
+      "width": 0
+    },
+    "model": "iot.relativeposition",
+    "pk": 22
+  },
+  {
+    "fields": {
+      "equipment": [
+        1
+      ],
+      "imagePath": "static/img/planta_casa.jpg",
+      "name": "Casa"
+    },
+    "model": "iot.template",
+    "pk": 1
+  },
+  {
+    "fields": {
+      "equipment": [
+        2
+      ],
+      "imagePath": "static/img/planta_casa_2.jpg",
+      "name": "Casa 2"
+    },
+    "model": "iot.template",
+    "pk": 2
+  },
+  {
+    "fields": {
+      "sensorId": 2,
+      "dateTimeCreation": "2015-06-11T15:48:38.857Z",
+      "temperature": 32,
+      "humidity": 60
+    },
+    "model": "iot.readdata",
+    "pk": 9
+  },
+  {
+    "fields": {
+      "sensorId": 1,
+      "dateTimeCreation": "2015-06-11T15:49:13.879Z",
+      "temperature": 28,
+      "humidity": 40
+    },
+    "model": "iot.readdata",
+    "pk": 10
+  },
+  {
+    "fields": {
+      "sensorId": 2,
+      "dateTimeCreation": "2015-06-12T10:13:13.420Z",
+      "temperature": 20,
+      "humidity": 20
+    },
+    "model": "iot.readdata",
+    "pk": 12
+  },
+  {
+    "fields": {
+      "sensorId": 2,
+      "dateTimeCreation": "2015-06-12T10:37:56.221Z",
+      "temperature": 55,
+      "humidity": 23
+    },
+    "model": "iot.readdata",
+    "pk": 13
+  },
+  {
+    "fields": {
+      "sensorId": 1,
+      "dateTimeCreation": "2015-06-12T10:56:49.842Z",
+      "temperature": 38,
+      "humidity": 38
+    },
+    "model": "iot.readdata",
+    "pk": 14
+  },
+  {
+    "fields": {
+      "sensorId": 1,
+      "dateTimeCreation": "2015-06-12T10:59:29.526Z",
+      "temperature": 8,
+      "humidity": 48
+    },
+    "model": "iot.readdata",
+    "pk": 15
+  },
+  {
+    "fields": {
+      "sensorId": 1,
+      "dateTimeCreation": "2015-06-12T11:00:30.198Z",
+      "temperature": -3,
+      "humidity": 32
+    },
+    "model": "iot.readdata",
+    "pk": 16
+  },
+  {
+    "fields": {
+      "sensorId": 2,
+      "dateTimeCreation": "2015-06-12T13:18:51.668Z",
+      "temperature": -20,
+      "humidity": 100
+    },
+    "model": "iot.readdata",
+    "pk": 17
+  },
+  {
+    "fields": {
+      "codename": "add_module",
+      "name": "Can add module",
+      "content_type": 1
+    },
+    "model": "auth.permission",
+    "pk": 1
+  },
+  {
+    "fields": {
+      "codename": "change_module",
+      "name": "Can change module",
+      "content_type": 1
+    },
+    "model": "auth.permission",
+    "pk": 2
+  },
+  {
+    "fields": {
+      "codename": "delete_module",
+      "name": "Can delete module",
+      "content_type": 1
+    },
+    "model": "auth.permission",
+    "pk": 3
+  },
+  {
+    "fields": {
+      "codename": "can_configure",
+      "name": "Can install/uninstall modules",
+      "content_type": 1
+    },
+    "model": "auth.permission",
+    "pk": 4
+  },
+  {
+    "fields": {
+      "codename": "add_logentry",
+      "name": "Can add log entry",
+      "content_type": 2
+    },
+    "model": "auth.permission",
+    "pk": 5
+  },
+  {
+    "fields": {
+      "codename": "change_logentry",
+      "name": "Can change log entry",
+      "content_type": 2
+    },
+    "model": "auth.permission",
+    "pk": 6
+  },
+  {
+    "fields": {
+      "codename": "delete_logentry",
+      "name": "Can delete log entry",
+      "content_type": 2
+    },
+    "model": "auth.permission",
+    "pk": 7
+  },
+  {
+    "fields": {
+      "codename": "add_permission",
+      "name": "Can add permission",
+      "content_type": 3
+    },
+    "model": "auth.permission",
+    "pk": 8
+  },
+  {
+    "fields": {
+      "codename": "change_permission",
+      "name": "Can change permission",
+      "content_type": 3
+    },
+    "model": "auth.permission",
+    "pk": 9
+  },
+  {
+    "fields": {
+      "codename": "delete_permission",
+      "name": "Can delete permission",
+      "content_type": 3
+    },
+    "model": "auth.permission",
+    "pk": 10
+  },
+  {
+    "fields": {
+      "codename": "add_group",
+      "name": "Can add group",
+      "content_type": 4
+    },
+    "model": "auth.permission",
+    "pk": 11
+  },
+  {
+    "fields": {
+      "codename": "change_group",
+      "name": "Can change group",
+      "content_type": 4
+    },
+    "model": "auth.permission",
+    "pk": 12
+  },
+  {
+    "fields": {
+      "codename": "delete_group",
+      "name": "Can delete group",
+      "content_type": 4
+    },
+    "model": "auth.permission",
+    "pk": 13
+  },
+  {
+    "fields": {
+      "codename": "add_user",
+      "name": "Can add user",
+      "content_type": 5
+    },
+    "model": "auth.permission",
+    "pk": 14
+  },
+  {
+    "fields": {
+      "codename": "change_user",
+      "name": "Can change user",
+      "content_type": 5
+    },
+    "model": "auth.permission",
+    "pk": 15
+  },
+  {
+    "fields": {
+      "codename": "delete_user",
+      "name": "Can delete user",
+      "content_type": 5
+    },
+    "model": "auth.permission",
+    "pk": 16
+  },
+  {
+    "fields": {
+      "codename": "add_contenttype",
+      "name": "Can add content type",
+      "content_type": 6
+    },
+    "model": "auth.permission",
+    "pk": 17
+  },
+  {
+    "fields": {
+      "codename": "change_contenttype",
+      "name": "Can change content type",
+      "content_type": 6
+    },
+    "model": "auth.permission",
+    "pk": 18
+  },
+  {
+    "fields": {
+      "codename": "delete_contenttype",
+      "name": "Can delete content type",
+      "content_type": 6
+    },
+    "model": "auth.permission",
+    "pk": 19
+  },
+  {
+    "fields": {
+      "codename": "add_session",
+      "name": "Can add session",
+      "content_type": 7
+    },
+    "model": "auth.permission",
+    "pk": 20
+  },
+  {
+    "fields": {
+      "codename": "change_session",
+      "name": "Can change session",
+      "content_type": 7
+    },
+    "model": "auth.permission",
+    "pk": 21
+  },
+  {
+    "fields": {
+      "codename": "delete_session",
+      "name": "Can delete session",
+      "content_type": 7
+    },
+    "model": "auth.permission",
+    "pk": 22
+  },
+  {
+    "fields": {
+      "codename": "add_microcomputer",
+      "name": "Can add Microcomputador",
+      "content_type": 8
+    },
+    "model": "auth.permission",
+    "pk": 23
+  },
+  {
+    "fields": {
+      "codename": "change_microcomputer",
+      "name": "Can change Microcomputador",
+      "content_type": 8
+    },
+    "model": "auth.permission",
+    "pk": 24
+  },
+  {
+    "fields": {
+      "codename": "delete_microcomputer",
+      "name": "Can delete Microcomputador",
+      "content_type": 8
+    },
+    "model": "auth.permission",
+    "pk": 25
+  },
+  {
+    "fields": {
+      "codename": "add_sensor",
+      "name": "Can add Sensor",
+      "content_type": 9
+    },
+    "model": "auth.permission",
+    "pk": 26
+  },
+  {
+    "fields": {
+      "codename": "change_sensor",
+      "name": "Can change Sensor",
+      "content_type": 9
+    },
+    "model": "auth.permission",
+    "pk": 27
+  },
+  {
+    "fields": {
+      "codename": "delete_sensor",
+      "name": "Can delete Sensor",
+      "content_type": 9
+    },
+    "model": "auth.permission",
+    "pk": 28
+  },
+  {
+    "fields": {
+      "codename": "add_physicalcharacteristic",
+      "name": "Can add Característica Física",
+      "content_type": 10
+    },
+    "model": "auth.permission",
+    "pk": 29
+  },
+  {
+    "fields": {
+      "codename": "change_physicalcharacteristic",
+      "name": "Can change Característica Física",
+      "content_type": 10
+    },
+    "model": "auth.permission",
+    "pk": 30
+  },
+  {
+    "fields": {
+      "codename": "delete_physicalcharacteristic",
+      "name": "Can delete Característica Física",
+      "content_type": 10
+    },
+    "model": "auth.permission",
+    "pk": 31
+  },
+  {
+    "fields": {
+      "codename": "add_gpu",
+      "name": "Can add GPU",
+      "content_type": 11
+    },
+    "model": "auth.permission",
+    "pk": 32
+  },
+  {
+    "fields": {
+      "codename": "change_gpu",
+      "name": "Can change GPU",
+      "content_type": 11
+    },
+    "model": "auth.permission",
+    "pk": 33
+  },
+  {
+    "fields": {
+      "codename": "delete_gpu",
+      "name": "Can delete GPU",
+      "content_type": 11
+    },
+    "model": "auth.permission",
+    "pk": 34
+  },
+  {
+    "fields": {
+      "codename": "add_processor",
+      "name": "Can add Processador",
+      "content_type": 12
+    },
+    "model": "auth.permission",
+    "pk": 35
+  },
+  {
+    "fields": {
+      "codename": "change_processor",
+      "name": "Can change Processador",
+      "content_type": 12
+    },
+    "model": "auth.permission",
+    "pk": 36
+  },
+  {
+    "fields": {
+      "codename": "delete_processor",
+      "name": "Can delete Processador",
+      "content_type": 12
+    },
+    "model": "auth.permission",
+    "pk": 37
+  },
+  {
+    "fields": {
+      "codename": "add_microcontroller",
+      "name": "Can add Microcontrolador",
+      "content_type": 13
+    },
+    "model": "auth.permission",
+    "pk": 38
+  },
+  {
+    "fields": {
+      "codename": "change_microcontroller",
+      "name": "Can change Microcontrolador",
+      "content_type": 13
+    },
+    "model": "auth.permission",
+    "pk": 39
+  },
+  {
+    "fields": {
+      "codename": "delete_microcontroller",
+      "name": "Can delete Microcontrolador",
+      "content_type": 13
+    },
+    "model": "auth.permission",
+    "pk": 40
+  },
+  {
+    "fields": {
+      "codename": "add_interface",
+      "name": "Can add Interface",
+      "content_type": 14
+    },
+    "model": "auth.permission",
+    "pk": 41
+  },
+  {
+    "fields": {
+      "codename": "change_interface",
+      "name": "Can change Interface",
+      "content_type": 14
+    },
+    "model": "auth.permission",
+    "pk": 42
+  },
+  {
+    "fields": {
+      "codename": "delete_interface",
+      "name": "Can delete Interface",
+      "content_type": 14
+    },
+    "model": "auth.permission",
+    "pk": 43
+  },
+  {
+    "fields": {
+      "codename": "add_operatingsystem",
+      "name": "Can add Sistema Operativo",
+      "content_type": 15
+    },
+    "model": "auth.permission",
+    "pk": 44
+  },
+  {
+    "fields": {
+      "codename": "change_operatingsystem",
+      "name": "Can change Sistema Operativo",
+      "content_type": 15
+    },
+    "model": "auth.permission",
+    "pk": 45
+  },
+  {
+    "fields": {
+      "codename": "delete_operatingsystem",
+      "name": "Can delete Sistema Operativo",
+      "content_type": 15
+    },
+    "model": "auth.permission",
+    "pk": 46
+  },
+  {
+    "fields": {
+      "codename": "add_expansion",
+      "name": "Can add Expansão",
+      "content_type": 16
+    },
+    "model": "auth.permission",
+    "pk": 47
+  },
+  {
+    "fields": {
+      "codename": "change_expansion",
+      "name": "Can change Expansão",
+      "content_type": 16
+    },
+    "model": "auth.permission",
+    "pk": 48
+  },
+  {
+    "fields": {
+      "codename": "delete_expansion",
+      "name": "Can delete Expansão",
+      "content_type": 16
+    },
+    "model": "auth.permission",
+    "pk": 49
+  },
+  {
+    "fields": {
+      "codename": "add_accessory",
+      "name": "Can add Acessório",
+      "content_type": 17
+    },
+    "model": "auth.permission",
+    "pk": 50
+  },
+  {
+    "fields": {
+      "codename": "change_accessory",
+      "name": "Can change Acessório",
+      "content_type": 17
+    },
+    "model": "auth.permission",
+    "pk": 51
+  },
+  {
+    "fields": {
+      "codename": "delete_accessory",
+      "name": "Can delete Acessório",
+      "content_type": 17
+    },
+    "model": "auth.permission",
+    "pk": 52
+  },
+  {
+    "fields": {
+      "codename": "add_memory",
+      "name": "Can add Memória",
+      "content_type": 18
+    },
+    "model": "auth.permission",
+    "pk": 53
+  },
+  {
+    "fields": {
+      "codename": "change_memory",
+      "name": "Can change Memória",
+      "content_type": 18
+    },
+    "model": "auth.permission",
+    "pk": 54
+  },
+  {
+    "fields": {
+      "codename": "delete_memory",
+      "name": "Can delete Memória",
+      "content_type": 18
+    },
+    "model": "auth.permission",
+    "pk": 55
+  },
+  {
+    "fields": {
+      "codename": "add_voltage",
+      "name": "Can add Voltagem",
+      "content_type": 19
+    },
+    "model": "auth.permission",
+    "pk": 56
+  },
+  {
+    "fields": {
+      "codename": "change_voltage",
+      "name": "Can change Voltagem",
+      "content_type": 19
+    },
+    "model": "auth.permission",
+    "pk": 57
+  },
+  {
+    "fields": {
+      "codename": "delete_voltage",
+      "name": "Can delete Voltagem",
+      "content_type": 19
+    },
+    "model": "auth.permission",
+    "pk": 58
+  },
+  {
+    "fields": {
+      "codename": "add_equipment",
+      "name": "Can add Equipamento",
+      "content_type": 20
+    },
+    "model": "auth.permission",
+    "pk": 59
+  },
+  {
+    "fields": {
+      "codename": "change_equipment",
+      "name": "Can change Equipamento",
+      "content_type": 20
+    },
+    "model": "auth.permission",
+    "pk": 60
+  },
+  {
+    "fields": {
+      "codename": "delete_equipment",
+      "name": "Can delete Equipamento",
+      "content_type": 20
+    },
+    "model": "auth.permission",
+    "pk": 61
+  },
+  {
+    "fields": {
+      "codename": "add_relativeposition",
+      "name": "Can add relative position",
+      "content_type": 21
+    },
+    "model": "auth.permission",
+    "pk": 62
+  },
+  {
+    "fields": {
+      "codename": "change_relativeposition",
+      "name": "Can change relative position",
+      "content_type": 21
+    },
+    "model": "auth.permission",
+    "pk": 63
+  },
+  {
+    "fields": {
+      "codename": "delete_relativeposition",
+      "name": "Can delete relative position",
+      "content_type": 21
+    },
+    "model": "auth.permission",
+    "pk": 64
+  },
+  {
+    "fields": {
+      "codename": "add_template",
+      "name": "Can add template",
+      "content_type": 22
+    },
+    "model": "auth.permission",
+    "pk": 65
+  },
+  {
+    "fields": {
+      "codename": "change_template",
+      "name": "Can change template",
+      "content_type": 22
+    },
+    "model": "auth.permission",
+    "pk": 66
+  },
+  {
+    "fields": {
+      "codename": "delete_template",
+      "name": "Can delete template",
+      "content_type": 22
+    },
+    "model": "auth.permission",
+    "pk": 67
+  },
+  {
+    "fields": {
+      "codename": "add_readdata",
+      "name": "Can add read data",
+      "content_type": 23
+    },
+    "model": "auth.permission",
+    "pk": 68
+  },
+  {
+    "fields": {
+      "codename": "change_readdata",
+      "name": "Can change read data",
+      "content_type": 23
+    },
+    "model": "auth.permission",
+    "pk": 69
+  },
+  {
+    "fields": {
+      "codename": "delete_readdata",
+      "name": "Can delete read data",
+      "content_type": 23
+    },
+    "model": "auth.permission",
+    "pk": 70
+  },
+  {
+    "fields": {
+      "username": "admin",
+      "first_name": "",
+      "last_name": "",
+      "is_active": true,
+      "is_superuser": true,
+      "is_staff": true,
+      "last_login": "2015-06-15T13:05:28.636Z",
+      "groups": [],
+      "user_permissions": [],
+      "password": "pbkdf2_sha256$15000$8FY792yBQcbq$TEQIBsx4CUYzEaSJxsXVNnRvmIs4DYTyFYuagH7MpXE=",
+      "email": "admin@xxx.com",
+      "date_joined": "2015-06-03T09:46:26.321Z"
+    },
+    "model": "auth.user",
+    "pk": 1
+  },
+  {
+    "fields": {
+      "name": "Arduino",
+      "dateManufacture": "2015-03-01",
+      "microcontroller": 1,
+      "dateTimeCreation": "2015-03-01T00:00:00Z",
+      "userAmendment": 1,
+      "dateTimeChange": "2015-03-01T00:00:00Z",
+      "operatingSystems": null,
+      "GPU": null,
+      "model": "Arduino Uno",
+      "userCreation": 1,
+      "processor": null
+    },
+    "model": "iot.microcomputer",
+    "pk": 1
+  },
+  {
+    "fields": {
+      "name": "Arduino",
+      "dateManufacture": "2015-03-01",
+      "microcontroller": 2,
+      "dateTimeCreation": "2015-03-01T00:00:00Z",
+      "userAmendment": 1,
+      "dateTimeChange": "2015-03-01T00:00:00Z",
+      "operatingSystems": null,
+      "GPU": null,
+      "model": "Arduino Leonardo",
+      "userCreation": 1,
+      "processor": null
+    },
+    "model": "iot.microcomputer",
+    "pk": 2
+  },
+  {
+    "fields": {
+      "name": "Arduino",
+      "dateManufacture": "2015-03-01",
+      "microcontroller": 9,
+      "dateTimeCreation": "2015-03-01T00:00:00Z",
+      "userAmendment": 1,
+      "dateTimeChange": "2015-03-01T00:00:00Z",
+      "operatingSystems": null,
+      "GPU": null,
+      "model": "Arduino Due",
+      "userCreation": 1,
+      "processor": null
+    },
+    "model": "iot.microcomputer",
+    "pk": 3
+  },
+  {
+    "fields": {
+      "name": "Arduino",
+      "dateManufacture": "2015-03-01",
+      "microcontroller": 2,
+      "dateTimeCreation": "2015-03-01T00:00:00Z",
+      "userAmendment": 1,
+      "dateTimeChange": "2015-03-01T00:00:00Z",
+      "operatingSystems": null,
+      "GPU": null,
+      "model": "Arduino Yún",
+      "userCreation": 1,
+      "processor": null
+    },
+    "model": "iot.microcomputer",
+    "pk": 4
+  },
+  {
+    "fields": {
+      "name": "Arduino",
+      "dateManufacture": "2015-03-01",
+      "microcontroller": 2,
+      "dateTimeCreation": "2015-03-01T00:00:00Z",
+      "userAmendment": 1,
+      "dateTimeChange": "2015-03-01T00:00:00Z",
+      "operatingSystems": null,
+      "GPU": null,
+      "model": "Arduino Tre",
+      "userCreation": 1,
+      "processor": 1
+    },
+    "model": "iot.microcomputer",
+    "pk": 5
+  },
+  {
+    "fields": {
+      "name": "Arduino",
+      "dateManufacture": "2015-03-01",
+      "microcontroller": null,
+      "dateTimeCreation": "2015-03-01T00:00:00Z",
+      "userAmendment": 1,
+      "dateTimeChange": "2015-03-01T00:00:00Z",
+      "operatingSystems": null,
+      "GPU": null,
+      "model": "Arduino Zero",
+      "userCreation": 1,
+      "processor": null
+    },
+    "model": "iot.microcomputer",
+    "pk": 6
+  },
+  {
+    "fields": {
+      "name": "Arduino",
+      "dateManufacture": "2015-03-01",
+      "microcontroller": 2,
+      "dateTimeCreation": "2015-03-01T00:00:00Z",
+      "userAmendment": 1,
+      "dateTimeChange": "2015-03-01T00:00:00Z",
+      "operatingSystems": null,
+      "GPU": null,
+      "model": "Arduino Micro",
+      "userCreation": 1,
+      "processor": null
+    },
+    "model": "iot.microcomputer",
+    "pk": 7
+  },
+  {
+    "fields": {
+      "name": "Arduino",
+      "dateManufacture": "2015-03-01",
+      "microcontroller": 2,
+      "dateTimeCreation": "2015-03-01T00:00:00Z",
+      "userAmendment": 1,
+      "dateTimeChange": "2015-03-01T00:00:00Z",
+      "operatingSystems": null,
+      "GPU": null,
+      "model": "Arduino Esplora",
+      "userCreation": 1,
+      "processor": null
+    },
+    "model": "iot.microcomputer",
+    "pk": 8
+  },
+  {
+    "fields": {
+      "name": "Arduino",
+      "dateManufacture": "2015-03-01",
+      "microcontroller": 5,
+      "dateTimeCreation": "2015-03-01T00:00:00Z",
+      "userAmendment": 1,
+      "dateTimeChange": "2015-03-01T00:00:00Z",
+      "operatingSystems": null,
+      "GPU": null,
+      "model": "Arduino MEGA ADK",
+      "userCreation": 1,
+      "processor": null
+    },
+    "model": "iot.microcomputer",
+    "pk": 9
+  },
+  {
+    "fields": {
+      "name": "Arduino",
+      "dateManufacture": "2015-03-01",
+      "microcontroller": 1,
+      "dateTimeCreation": "2015-03-01T00:00:00Z",
+      "userAmendment": 1,
+      "dateTimeChange": "2015-03-01T00:00:00Z",
+      "operatingSystems": null,
+      "GPU": null,
+      "model": "Arduino Ethernet",
+      "userCreation": 1,
+      "processor": null
+    },
+    "model": "iot.microcomputer",
+    "pk": 10
+  },
+  {
+    "fields": {
+      "name": "Arduino",
+      "dateManufacture": "2015-03-01",
+      "microcontroller": 5,
+      "dateTimeCreation": "2015-03-01T00:00:00Z",
+      "userAmendment": 1,
+      "dateTimeChange": "2015-03-01T00:00:00Z",
+      "operatingSystems": null,
+      "GPU": null,
+      "model": "Arduino Mega 2560",
+      "userCreation": 1,
+      "processor": null
+    },
+    "model": "iot.microcomputer",
+    "pk": 11
+  },
+  {
+    "fields": {
+      "name": "Arduino",
+      "dateManufacture": "2015-03-01",
+      "microcontroller": 2,
+      "dateTimeCreation": "2015-03-01T00:00:00Z",
+      "userAmendment": 1,
+      "dateTimeChange": "2015-03-01T00:00:00Z",
+      "operatingSystems": null,
+      "GPU": null,
+      "model": "Arduino Robot",
+      "userCreation": 1,
+      "processor": null
+    },
+    "model": "iot.microcomputer",
+    "pk": 12
+  },
+  {
+    "fields": {
+      "name": "Arduino",
+      "dateManufacture": "2015-03-01",
+      "microcontroller": 6,
+      "dateTimeCreation": "2015-03-01T00:00:00Z",
+      "userAmendment": 1,
+      "dateTimeChange": "2015-03-01T00:00:00Z",
+      "operatingSystems": null,
+      "GPU": null,
+      "model": "LilyPad Arduino Simple",
+      "userCreation": 1,
+      "processor": null
+    },
+    "model": "iot.microcomputer",
+    "pk": 13
+  },
+  {
+    "fields": {
+      "name": "Arduino",
+      "dateManufacture": "2015-03-01",
+      "microcontroller": 6,
+      "dateTimeCreation": "2015-03-01T00:00:00Z",
+      "userAmendment": 1,
+      "dateTimeChange": "2015-03-01T00:00:00Z",
+      "operatingSystems": null,
+      "GPU": null,
+      "model": "LilyPad Arduino SimpleSnap",
+      "userCreation": 1,
+      "processor": null
+    },
+    "model": "iot.microcomputer",
+    "pk": 14
+  },
+  {
+    "fields": {
+      "name": "Arduino",
+      "dateManufacture": "2015-03-01",
+      "microcontroller": 10,
+      "dateTimeCreation": "2015-03-01T00:00:00Z",
+      "userAmendment": 1,
+      "dateTimeChange": "2015-03-01T00:00:00Z",
+      "operatingSystems": null,
+      "GPU": null,
+      "model": "LilyPad Arduino",
+      "userCreation": 1,
+      "processor": null
+    },
+    "model": "iot.microcomputer",
+    "pk": 15
+  },
+  {
+    "fields": {
+      "name": "Arduino",
+      "dateManufacture": "2015-03-01",
+      "microcontroller": 3,
+      "dateTimeCreation": "2015-03-01T00:00:00Z",
+      "userAmendment": 1,
+      "dateTimeChange": "2015-03-01T00:00:00Z",
+      "operatingSystems": null,
+      "GPU": null,
+      "model": "LilyPad Arduino USB",
+      "userCreation": 1,
+      "processor": null
+    },
+    "model": "iot.microcomputer",
+    "pk": 16
+  },
+  {
+    "fields": {
+      "name": "Arduino",
+      "dateManufacture": "2015-03-01",
+      "microcontroller": 6,
+      "dateTimeCreation": "2015-03-01T00:00:00Z",
+      "userAmendment": 1,
+      "dateTimeChange": "2015-03-01T00:00:00Z",
+      "operatingSystems": null,
+      "GPU": null,
+      "model": "Arduino Pro Mini",
+      "userCreation": 1,
+      "processor": null
+    },
+    "model": "iot.microcomputer",
+    "pk": 17
+  },
+  {
+    "fields": {
+      "name": "Arduino",
+      "dateManufacture": "2015-03-01",
+      "microcontroller": 8,
+      "dateTimeCreation": "2015-03-01T00:00:00Z",
+      "userAmendment": 1,
+      "dateTimeChange": "2015-03-01T00:00:00Z",
+      "operatingSystems": null,
+      "GPU": null,
+      "model": "Arduino Fio",
+      "userCreation": 1,
+      "processor": null
+    },
+    "model": "iot.microcomputer",
+    "pk": 18
+  },
+  {
+    "fields": {
+      "name": "Arduino",
+      "dateManufacture": "2015-03-01",
+      "microcontroller": 7,
+      "dateTimeCreation": "2015-03-01T00:00:00Z",
+      "userAmendment": 1,
+      "dateTimeChange": "2015-03-01T00:00:00Z",
+      "operatingSystems": null,
+      "GPU": null,
+      "model": "Arduino Pro",
+      "userCreation": 1,
+      "processor": null
+    },
+    "model": "iot.microcomputer",
+    "pk": 19
+  },
+  {
+    "fields": {
+      "name": "Raspberry Pi",
+      "dateManufacture": "2015-04-24",
+      "microcontroller": null,
+      "dateTimeCreation": "2015-04-24T21:19:51.144Z",
+      "userAmendment": 1,
+      "dateTimeChange": "2015-04-24T21:20:09.568Z",
+      "operatingSystems": null,
+      "GPU": 1,
+      "model": "Raspberry Pi B+",
+      "userCreation": 1,
+      "processor": 2
+    },
+    "model": "iot.microcomputer",
+    "pk": 21
+  },
+  {
+    "fields": {
+      "dateTimeCreation": "2015-04-24T21:15:19.957Z",
+      "userAmendment": 1,
+      "dateTimeChange": "2015-04-24T21:29:40.056Z",
+      "clockSpeed": 250,
+      "userCreation": 1,
+      "type": "Broadcom VideoCore IV"
+    },
+    "model": "iot.gpu",
+    "pk": 1
+  },
+  {
+    "fields": {
+      "dateTimeCreation": "2015-03-01T00:00:00Z",
+      "userAmendment": 1,
+      "dateTimeChange": "2015-03-01T00:00:00Z",
+      "clockSpeed": 1,
+      "userCreation": 1,
+      "type": "Texas Instrument Sitara AM3359AZCZ100 (ARM Cortex-A8)"
+    },
+    "model": "iot.processor",
+    "pk": 1
+  },
+  {
+    "fields": {
+      "dateTimeCreation": "2015-04-24T21:13:15.311Z",
+      "userAmendment": 1,
+      "dateTimeChange": "2015-04-24T21:13:15.347Z",
+      "clockSpeed": 700,
+      "userCreation": 1,
+      "type": "ARM1176JZF-S"
+    },
+    "model": "iot.processor",
+    "pk": 2
+  },
+  {
+    "fields": {
+      "dateTimeCreation": "2015-03-01T00:00:00Z",
+      "userAmendment": 1,
+      "dateTimeChange": "2015-03-01T00:00:00Z",
+      "clockSpeed": 16,
+      "userCreation": 1,
+      "type": "ATmega328"
+    },
+    "model": "iot.microcontroller",
+    "pk": 1
+  },
+  {
+    "fields": {
+      "dateTimeCreation": "2015-03-01T00:00:00Z",
+      "userAmendment": 1,
+      "dateTimeChange": "2015-03-01T00:00:00Z",
+      "clockSpeed": 16,
+      "userCreation": 1,
+      "type": "ATmega32u4"
+    },
+    "model": "iot.microcontroller",
+    "pk": 2
+  },
+  {
+    "fields": {
+      "dateTimeCreation": "2015-03-01T00:00:00Z",
+      "userAmendment": 1,
+      "dateTimeChange": "2015-03-01T00:00:00Z",
+      "clockSpeed": 8,
+      "userCreation": 1,
+      "type": "ATmega32u4/8"
+    },
+    "model": "iot.microcontroller",
+    "pk": 3
+  },
+  {
+    "fields": {
+      "dateTimeCreation": "2015-03-01T00:00:00Z",
+      "userAmendment": 1,
+      "dateTimeChange": "2015-03-01T00:00:00Z",
+      "clockSpeed": 48,
+      "userCreation": 1,
+      "type": "ATSAMD21G18, 48pins LQFP"
+    },
+    "model": "iot.microcontroller",
+    "pk": 4
+  },
+  {
+    "fields": {
+      "dateTimeCreation": "2015-03-01T00:00:00Z",
+      "userAmendment": 1,
+      "dateTimeChange": "2015-03-01T00:00:00Z",
+      "clockSpeed": 16,
+      "userCreation": 1,
+      "type": "ATmega2560"
+    },
+    "model": "iot.microcontroller",
+    "pk": 5
+  },
+  {
+    "fields": {
+      "dateTimeCreation": "2015-03-01T00:00:00Z",
+      "userAmendment": 1,
+      "dateTimeChange": "2015-03-01T00:00:00Z",
+      "clockSpeed": 8,
+      "userCreation": 1,
+      "type": "ATmega328/8MHz"
+    },
+    "model": "iot.microcontroller",
+    "pk": 6
+  },
+  {
+    "fields": {
+      "dateTimeCreation": "2015-03-01T00:00:00Z",
+      "userAmendment": 1,
+      "dateTimeChange": "2015-03-01T00:00:00Z",
+      "clockSpeed": 8,
+      "userCreation": 1,
+      "type": "ATmega168"
+    },
+    "model": "iot.microcontroller",
+    "pk": 7
+  },
+  {
+    "fields": {
+      "dateTimeCreation": "2015-03-01T00:00:00Z",
+      "userAmendment": 1,
+      "dateTimeChange": "2015-03-01T00:00:00Z",
+      "clockSpeed": 8,
+      "userCreation": 1,
+      "type": "ATmega328P"
+    },
+    "model": "iot.microcontroller",
+    "pk": 8
+  },
+  {
+    "fields": {
+      "dateTimeCreation": "2015-03-01T00:00:00Z",
+      "userAmendment": 1,
+      "dateTimeChange": "2015-03-01T00:00:00Z",
+      "clockSpeed": 84,
+      "userCreation": 1,
+      "type": "AT91SAM3X8E"
+    },
+    "model": "iot.microcontroller",
+    "pk": 9
+  },
+  {
+    "fields": {
+      "dateTimeCreation": "2015-03-01T00:00:00Z",
+      "userAmendment": 1,
+      "dateTimeChange": "2015-03-01T00:00:00Z",
+      "clockSpeed": 8,
+      "userCreation": 1,
+      "type": "ATmega168V "
+    },
+    "model": "iot.microcontroller",
+    "pk": 10
+  },
+  {
+    "fields": {
+      "dateTimeCreation": "2015-03-01T00:00:00Z",
+      "userAmendment": 1,
+      "dateTimeChange": "2015-03-01T00:00:00Z",
+      "clockSpeed": 8,
+      "userCreation": 1,
+      "type": "ATmega328V "
+    },
+    "model": "iot.microcontroller",
+    "pk": 11
+  },
+  {
+    "fields": {
+      "name": "Raspberry Pi",
+      "microComputer": 21,
+      "serialNumber": "811-1284",
+      "dateTimeCreation": "2015-06-03T09:48:57.110Z",
+      "expansion": [],
+      "userAmendment": 1,
+      "dateTimeChange": "2015-06-03T09:48:57.113Z",
+      "userCreation": 1,
+      "accessory": [],
+      "sensor": [
+        1
+      ],
+      "model": "B+"
+    },
+    "model": "iot.equipment",
+    "pk": 1
+  },
+  {
+    "fields": {
+      "name": "Raspberry Pi 2",
+      "microComputer": 21,
+      "serialNumber": "2545245245",
+      "dateTimeCreation": "2015-06-03T09:59:17.097Z",
+      "expansion": [],
+      "userAmendment": 1,
+      "dateTimeChange": "2015-06-15T13:06:02.283Z",
+      "userCreation": 1,
+      "accessory": [],
+      "sensor": [
+        1,
+        2
+      ],
+      "model": "B+"
+    },
+    "model": "iot.equipment",
+    "pk": 2
+  },
+  {
+    "fields": {
+      "action_flag": 1,
+      "action_time": "2015-06-03T09:48:52.452Z",
+      "object_repr": "Temperarura/Umidade",
+      "object_id": "1",
+      "change_message": "",
+      "user": 1,
+      "content_type": 9
+    },
+    "model": "admin.logentry",
+    "pk": 1
+  },
+  {
+    "fields": {
+      "action_flag": 1,
+      "action_time": "2015-06-03T09:48:57.126Z",
+      "object_repr": "Raspberry Pi",
+      "object_id": "1",
+      "change_message": "",
+      "user": 1,
+      "content_type": 20
+    },
+    "model": "admin.logentry",
+    "pk": 2
+  },
+  {
+    "fields": {
+      "action_flag": 2,
+      "action_time": "2015-06-03T09:56:19.879Z",
+      "object_repr": "Casa",
+      "object_id": "1",
+      "change_message": "Foi modificado imagePath e equipment.",
+      "user": 1,
+      "content_type": 22
+    },
+    "model": "admin.logentry",
+    "pk": 3
+  },
+  {
+    "fields": {
+      "action_flag": 2,
+      "action_time": "2015-06-03T09:56:31.287Z",
+      "object_repr": "Casa 2",
+      "object_id": "2",
+      "change_message": "Foi modificado imagePath e equipment.",
+      "user": 1,
+      "content_type": 22
+    },
+    "model": "admin.logentry",
+    "pk": 4
+  },
+  {
+    "fields": {
+      "action_flag": 1,
+      "action_time": "2015-06-03T09:59:17.106Z",
+      "object_repr": "Raspberry Pi 2",
+      "object_id": "2",
+      "change_message": "",
+      "user": 1,
+      "content_type": 20
+    },
+    "model": "admin.logentry",
+    "pk": 5
+  },
+  {
+    "fields": {
+      "action_flag": 2,
+      "action_time": "2015-06-03T09:59:23.484Z",
+      "object_repr": "Casa 2",
+      "object_id": "2",
+      "change_message": "Foi modificado equipment.",
+      "user": 1,
+      "content_type": 22
+    },
+    "model": "admin.logentry",
+    "pk": 6
+  },
+  {
+    "fields": {
+      "action_flag": 2,
+      "action_time": "2015-06-04T08:19:39.894Z",
+      "object_repr": "Casa",
+      "object_id": "1",
+      "change_message": "Foi modificado imagePath.",
+      "user": 1,
+      "content_type": 22
+    },
+    "model": "admin.logentry",
+    "pk": 7
+  },
+  {
+    "fields": {
+      "action_flag": 2,
+      "action_time": "2015-06-04T08:19:46.563Z",
+      "object_repr": "Casa 2",
+      "object_id": "2",
+      "change_message": "Foi modificado imagePath.",
+      "user": 1,
+      "content_type": 22
+    },
+    "model": "admin.logentry",
+    "pk": 8
+  },
+  {
+    "fields": {
+      "action_flag": 2,
+      "action_time": "2015-06-08T11:06:49.970Z",
+      "object_repr": "Casa 2",
+      "object_id": "2",
+      "change_message": "Foi modificado imagePath.",
+      "user": 1,
+      "content_type": 22
+    },
+    "model": "admin.logentry",
+    "pk": 9
+  },
+  {
+    "fields": {
+      "action_flag": 2,
+      "action_time": "2015-06-08T11:06:59.645Z",
+      "object_repr": "Casa",
+      "object_id": "1",
+      "change_message": "Foi modificado imagePath.",
+      "user": 1,
+      "content_type": 22
+    },
+    "model": "admin.logentry",
+    "pk": 10
+  },
+  {
+    "fields": {
+      "action_flag": 1,
+      "action_time": "2015-06-11T15:18:29.269Z",
+      "object_repr": "Temperarura",
+      "object_id": "2",
+      "change_message": "",
+      "user": 1,
+      "content_type": 9
+    },
+    "model": "admin.logentry",
+    "pk": 11
+  },
+  {
+    "fields": {
+      "action_flag": 2,
+      "action_time": "2015-06-11T15:18:47.095Z",
+      "object_repr": "Raspberry Pi 2",
+      "object_id": "2",
+      "change_message": "Foi modificado sensor.",
+      "user": 1,
+      "content_type": 20
+    },
+    "model": "admin.logentry",
+    "pk": 12
+  },
+  {
+    "fields": {
+      "action_flag": 2,
+      "action_time": "2015-06-15T13:06:02.355Z",
+      "object_repr": "Raspberry Pi 2",
+      "object_id": "2",
+      "change_message": "Foi modificado sensor.",
+      "user": 1,
+      "content_type": 20
+    },
+    "model": "admin.logentry",
+    "pk": 13
+  }
+]
