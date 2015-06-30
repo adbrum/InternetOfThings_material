@@ -53,7 +53,7 @@ INSTALLED_APPS = (
     #'django.contrib.admin',
     'material',
     'material.frontend',
-    'easy_pjax',
+    #'easy_pjax',
     'material.admin',
     'admin_reorder',
     'django.contrib.admin',

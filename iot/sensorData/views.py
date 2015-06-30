@@ -16,6 +16,8 @@ from django.utils.datetime_safe import datetime
 from django.utils.translation import ugettext_lazy as _
 from django.views.decorators.csrf import csrf_protect, csrf_exempt
 import json
+import netifaces
+from os.path import os
 
 from iot.models import Equipment, Sensor, RelativePosition, Template, ReadData
 
@@ -67,4 +69,35 @@ def loadData(request, *args, **kwargs):
         return HttpResponse(json.dumps(response_data), content_type = "application/json")
 
         
+@csrf_exempt
+def configParameters(request, *args, **kwargs):
+    """
+    Salva os parametros necessários para a comunicação cliente servidor.
+    Copia o ficheiro com os parametros para o cliente.    
+    """
+    
+    ipCopy =    kwargs["ip"]
+    localhost = netifaces.ifaddresses('eth0')[2][0]['addr']
+    idSensor =  kwargs["idSensor"]
+    user =      kwargs["user"]
+    password =  kwargs["password"]
+    time =      kwargs["time"]
+
+    if request.method == 'POST':
         
+        data = open('dados.txt', 'w') 
+        data.write(localhost)
+        data.write(time)  
+        
+        data.close()
+        
+        #realiza a copia do ficheiro
+        os.system("sshpass -p {0} rsync -av --progress {1} {2}@{3}:/home/adriano/Documentos/".format(password , '/home/adriano/Documentos/dados.txt',user ,ipCopy))
+        
+        template = "parameters/index.html"
+        return render_to_response(template,
+                              locals(),
+                              context_instance=RequestContext(request)
+                              )
+
+                

@@ -1,0 +1,104 @@
+{% extends "admin/base.html" %}
+{% load i18n admin_static %}
+{% block breadcrumbs_items %}
+	<a href="/admin/">Todos os Aplicativos</a> ⟩
+	<a href="/home/"><i class="fa adm-app-default adm-auth-user"></i> &nbsp;&nbsp;Monitor</a> ⟩
+	<a href="#"><i class="fa adm-app-default adm-iot-sensor"></i> &nbsp;&nbsp;Sensores</a>
+{% endblock %} 
+{% block content %}
+
+<html>
+  <head>
+  <input hidden type="text" id="temp" >
+    <input hidden type="text" id="hum">
+    <title>Auto-adjust</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+	    <style>
+	      body {
+	        text-align: left;
+	      }
+	      
+	      #g1, #g2 {
+	        width:400px; height:320px;
+	        display: inline-block;
+	        margin: 1em;
+	      }
+	      
+	       #g3, #g4 {
+	        width:100px; height:80px;
+	        display: inline-block;
+	        margin: 1em;
+	      }
+	    </style>
+    <script type="text/javascript" src="{% static 'resources/js/raphael.2.1.0.min.js' %}"></script>
+    <script type="text/javascript" src="{% static 'resources/js/justgage.1.0.1.min.js' %}"></script>
+ </head>
+ <body>
+  
+  <div class="container"  style="text-align: center;">
+	<div class="card" style="text-align: center;>
+		<div class="card-content">
+			<div class="input-field col s12 m6 l6 ">
+			    <div id="g1"></div>
+	    		<div id="g2"></div>
+			</div>
+		</div>
+	</div>	
+</div>
+<input type="hidden" id = "idSensor" value="{{idSensor}}">
+</body>
+</html>
+<script type="text/javascript">
+	$(document).ready(function() {
+		
+		var temp = 0;
+  		var hum = 50;
+		var idSensor = $("#idSensor").val();
+		
+		function mycode() {
+		$.ajax({
+			  type: "POST",
+			  url: "/sensorData/load/" + idSensor + "/",
+			  
+			  data: {},
+			  dataType: "json",
+			  success: function(json){
+				  temp = json[0].sensorData_temp;
+				  hum = json[0].sensorData_hum;
+			  }
+		});
+		
+		}setInterval(mycode, 2000);
+		
+		var g1, g2;
+
+		var g1 = new JustGage({
+					  
+	          id: "g1", 
+	          value: temp,
+	          min: -100,
+	          max: 100,
+	          title: "Temperatura",
+	          label: "ºC"
+	        
+	        });
+	    	  
+	        var g2 = new JustGage({
+	          id: "g2", 
+	          value: hum, 
+	          min: 0,
+	          max: 100,
+	          title: "Humidade",
+	          label: "%"
+	        });
+	    
+	        
+	        setInterval(function() {
+	          g1.refresh(temp);
+	          g2.refresh(hum);          
+	          
+	        }, 2500);
+		
+	});
+</script>
+{% endblock %}
