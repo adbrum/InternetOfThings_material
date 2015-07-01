@@ -39,9 +39,9 @@ BOOTSTRAP_ADMIN_SIDEBAR_MENU = True
 
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = False
+DEBUG = True
 
-TEMPLATE_DEBUG = False
+TEMPLATE_DEBUG = True
 
 ALLOWED_HOSTS = ['*']
 
@@ -118,7 +118,7 @@ ADMIN_REORDER = (
 
     # Reorder app models
     {'app': 'auth', 'models': ('auth.User', 'auth.Group')},
-    {'app': 'iot', 'models': ('iot.Template', 'iot.Equipment', 'iot.Sensor')},
+    {'app': 'iot', 'models': ('iot.Template', 'iot.Equipment', 'iot.Sensor', 'iot.Parameter')},
 
     # Exclude models
     #{'app': 'auth', 'models': ('auth.User', )},

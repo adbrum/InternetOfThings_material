@@ -3,7 +3,8 @@ from _functools import partial
 from django.contrib import admin
 from django.forms.widgets import MediaDefiningClass
 from iot.models import Processor, Microcomputer, PhysicalCharacteristic, Voltage, \
-GPU, OperatingSystem, Interface, Expansion, Accessory, Memory, Equipment, Sensor, Microcontroller, Template
+GPU, OperatingSystem, Interface, Expansion, Accessory, Memory, Equipment, Sensor, Microcontroller, Template,\
+    Parameter
 
 
 class MicrocomputerAdmin(admin.ModelAdmin):
@@ -39,5 +40,6 @@ admin.site.register(Memory)
 admin.site.register(Sensor)
 admin.site.register(Voltage)
 admin.site.register(Template)
+admin.site.register(Parameter)
 
 

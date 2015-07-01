@@ -1,104 +1,134 @@
-{% extends "admin/base.html" %}
-{% load i18n admin_static %}
-{% block breadcrumbs_items %}
-	<a href="/admin/">Todos os Aplicativos</a> ⟩
-	<a href="/home/"><i class="fa adm-app-default adm-auth-user"></i> &nbsp;&nbsp;Monitor</a> ⟩
-	<a href="#"><i class="fa adm-app-default adm-iot-sensor"></i> &nbsp;&nbsp;Sensores</a>
-{% endblock %} 
-{% block content %}
+{% extends "admin/base.html" %} {% load i18n admin_static %} {% block breadcrumbs_items %}
+<a href="/admin/">Todos os Aplicativos</a>
+⟩
+<a href="#"><i class="fa adm-app-default adm-iot-sensor"></i> &nbsp;&nbsp;Parâmetros</a>
+
+{% endblock %} {% block content %}
 
 <html>
-  <head>
-  <input hidden type="text" id="temp" >
-    <input hidden type="text" id="hum">
-    <title>Auto-adjust</title>
-    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
-	    <style>
-	      body {
-	        text-align: left;
-	      }
-	      
-	      #g1, #g2 {
-	        width:400px; height:320px;
-	        display: inline-block;
-	        margin: 1em;
-	      }
-	      
-	       #g3, #g4 {
-	        width:100px; height:80px;
-	        display: inline-block;
-	        margin: 1em;
-	      }
-	    </style>
-    <script type="text/javascript" src="{% static 'resources/js/raphael.2.1.0.min.js' %}"></script>
-    <script type="text/javascript" src="{% static 'resources/js/justgage.1.0.1.min.js' %}"></script>
- </head>
- <body>
-  
-  <div class="container"  style="text-align: center;">
-	<div class="card" style="text-align: center;>
-		<div class="card-content">
-			<div class="input-field col s12 m6 l6 ">
-			    <div id="g1"></div>
-	    		<div id="g2"></div>
-			</div>
+<head>
+
+</head>
+<body>
+	<div class="row change-form">
+		<div class="col s12 m12 l12">
+			<form enctype="multipart/form-data" action="" method="post" id="template_form">
+				<div class="card">
+					<div id="dados" class="card-content">
+						<input type="hidden" name="csrfmiddlewaretoken" value="qJvdFKHASaKWf5h0eoXzyf70De93MFxx"> <span class="card-title black-text">Configurações</span>
+						<div class="section">
+							<h5></h5>
+							<div class="row">
+								<div class="input-field col s12 required">
+									<input type="text" class="vTextField " name="ip" maxlength="100" id="ip" required><label for="ip">Endereço IP do Equipamento</label>
+								</div>
+							</div>
+							<div class="row">
+								<div class="input-field col s12 required">
+									<input type="text" class="vTextField " name="user" maxlength="100" id="user" required><label for="user">Nome do utilizador</label>
+								</div>
+							</div>
+							<div class="row">
+								<div class="input-field col s12 required">
+									<input type="password" class="vTextField" id="password" required><label for="password">Palavra passe</label>
+							    </div>
+							</div>
+							<div class="row">
+								<div class="input-field col s12 required">
+								    <input type="password" class="vTextField" id="confirm_password" required><label for="confirm_password">Confirmar palavra passe</label>
+								</div>
+							</div>
+							        
+							
+							<div class="row">
+								<div class="input-field col s12 required">
+									<input type="text" class="vTextField " name="sensorId" maxlength="100" id="sensorId" required><label for="sensorId">ID do Sensor</label>
+								</div>
+							</div>
+							<div class="row">
+								<div class="input-field col s12 required">
+									<input type="text" class="vTextField " name="timeRead" maxlength="100" id="timeRead" required><label for="timeRead">Tempo do cilo de leitura</label>
+								</div>
+							</div>
+
+							<!-- <div class="row">
+								<div class="input-field file-field col s12">
+									<div class="btn">
+										<span>File</span> <input type="file" name="filePath">
+									</div>
+									<input type="text" class="file-path " id="filePath" required><label for="filePath">Caminho do ficheiro</label>
+								</div>
+							</div> -->
+						</div>
+						<script type="text/javascript">
+							(function($) {
+								var field;
+
+							})(django.jQuery);
+						</script>
+
+					</div>
+					<div class="card-action">
+						<div class="right-align">
+							<button type="button" id="save" class="waves-effect waves-light btn white-text">Gravar</button>
+
+						</div>
+					</div>
+				</div>
+			</form>
 		</div>
-	</div>	
-</div>
-<input type="hidden" id = "idSensor" value="{{idSensor}}">
+	</div>
 </body>
 </html>
 <script type="text/javascript">
 	$(document).ready(function() {
-		
-		var temp = 0;
-  		var hum = 50;
-		var idSensor = $("#idSensor").val();
-		
-		function mycode() {
-		$.ajax({
-			  type: "POST",
-			  url: "/sensorData/load/" + idSensor + "/",
-			  
-			  data: {},
-			  dataType: "json",
-			  success: function(json){
-				  temp = json[0].sensorData_temp;
-				  hum = json[0].sensorData_hum;
-			  }
-		});
-		
-		}setInterval(mycode, 2000);
-		
-		var g1, g2;
+		var password = document.getElementById("password")
+		  , confirm_password = document.getElementById("confirm_password");
 
-		var g1 = new JustGage({
-					  
-	          id: "g1", 
-	          value: temp,
-	          min: -100,
-	          max: 100,
-	          title: "Temperatura",
-	          label: "ºC"
-	        
-	        });
-	    	  
-	        var g2 = new JustGage({
-	          id: "g2", 
-	          value: hum, 
-	          min: 0,
-	          max: 100,
-	          title: "Humidade",
-	          label: "%"
-	        });
-	    
-	        
-	        setInterval(function() {
-	          g1.refresh(temp);
-	          g2.refresh(hum);          
-	          
-	        }, 2500);
-		
+		function validatePassword(){
+		  if(password.value != confirm_password.value) {
+			  
+		    confirm_password.setCustomValidity("Passwords Don't Match");
+		  } else {
+		    confirm_password.setCustomValidity('');
+    
+		  }
+		}
+
+		password.onchange = validatePassword;
+		confirm_password.onkeyup = validatePassword;
+		$("#save").click(function(e) {
+			
+			var ip 			= $("#ip").val();
+			var sensorId 	= $("#sensorId").val();
+			var timeRead 	= $("#timeRead").val();
+			var user 		= $("#user").val();
+			var password 	= $("#password").val();
+			
+			var dados 		= {	
+								"ip":ip,
+								"sensorId":sensorId,
+								"timeRead":timeRead,
+								"password":password,
+								"user":user
+								};
+
+			jsonDados = JSON.stringify(dados);
+			
+			console.log(jsonDados)
+
+			$.ajax({
+				  type: "POST",
+				  url: "{% url 'configParameters' %}",
+				  traditional: true,
+				  data: {"dados":jsonDados},
+				  
+				  success: function(data){
+					  //console.log(data)
+				  }
+			});
+		});
+
 	});
 </script>
 {% endblock %}

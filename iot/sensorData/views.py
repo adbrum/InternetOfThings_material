@@ -70,34 +70,46 @@ def loadData(request, *args, **kwargs):
 
         
 @csrf_exempt
-def configParameters(request, *args, **kwargs):
+def configParameters(request):
+    
     """
     Salva os parametros necessários para a comunicação cliente servidor.
     Copia o ficheiro com os parametros para o cliente.    
     """
-    
-    ipCopy =    kwargs["ip"]
-    localhost = netifaces.ifaddresses('eth0')[2][0]['addr']
-    idSensor =  kwargs["idSensor"]
-    user =      kwargs["user"]
-    password =  kwargs["password"]
-    time =      kwargs["time"]
-
     if request.method == 'POST':
         
+        #Recebe a string pelo POST e a transforma em objeto.
+        dados = json.loads(request.POST.get('dados'))
+              
         data = open('dados.txt', 'w') 
-        data.write(localhost)
-        data.write(time)  
+        
+        ipCopy = dados.get('ip', 'No available data')
+        user = dados.get('user', 'No available data')
+        password = dados.get('password', 'No available data')
+        
+        localhost = netifaces.ifaddresses('eth0')[2][0]['addr']
+        data.write(str(localhost)+'\n')
+        
+        for key, value in dados.iteritems():
+            print value
+            if key == 'user' or key == 'password' or key == 'ip':
+                pass
+            else:
+                data.write(str(value)+'\n')
         
         data.close()
-        
+             
         #realiza a copia do ficheiro
-        os.system("sshpass -p {0} rsync -av --progress {1} {2}@{3}:/home/adriano/Documentos/".format(password , '/home/adriano/Documentos/dados.txt',user ,ipCopy))
+        os.system("sshpass -p {0} rsync -av --progress {1} {2}@{3}:/home/adriano/Documentos/".format(password , 'dados.txt',user ,ipCopy))
+             
+             
         
-        template = "parameters/index.html"
-        return render_to_response(template,
-                              locals(),
-                              context_instance=RequestContext(request)
-                              )
+    #return HttpResponse(content_type = "application/json")
+    template = "parameters/index.html"
+    return render_to_response(template,
+                          locals(),
+                          context_instance=RequestContext(request)
+                          )
+
 
                 

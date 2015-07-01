@@ -3,4 +3,5 @@ django-audit-log==0.7.0
 django-easy-pjax==1.2.0
 django-material==0.3.0
 django-modeladmin-reorder==0.1.2
+netifaces==0.10.4
 psycopg2==2.6

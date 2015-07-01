@@ -5,10 +5,14 @@
 :email: 911911951@alunos.ipbeja.pt
 """
 from datetime import datetime
+from django import forms
 from django.contrib.auth.models import User
 from django.db import models
 from django.db.models.fields import FloatField, IntegerField
+from django.forms.widgets import PasswordInput
 from django.utils.translation import ugettext_lazy as _
+import netifaces
+from os.path import os
 
 from audit_log.models.fields import CreatingUserField, LastUserField
 from internet_of_things.settings import MEDIA_ROOT
@@ -279,3 +283,39 @@ class ReadData(models.Model):
     humidity = FloatField(verbose_name='Humidade')
     dateTimeCreation = models.DateTimeField(auto_now_add=True)
     
+class Parameter(models.Model):
+    equipment = models.ForeignKey('Equipment', verbose_name='Equipamentos')
+    ip = models.CharField(max_length=100, verbose_name='Endereço IP')
+    userName = models.CharField(max_length=100, verbose_name='Utilizador')
+    #password = models.CharField(max_length=32, widget=forms.PasswordInput)
+    password = models.CharField(max_length=100, verbose_name='Palavra passe')
+    sensorId = models.IntegerField(verbose_name='ID do sensor')
+    timeRead = models.IntegerField(verbose_name='Tempo do ciclo de leitura')
+    dateTimeCreation = models.DateTimeField(auto_now_add=True)
+    
+    def save(self,  *args, **kwargs):
+        """
+        Salva os parametros necessários para a comunicação cliente servidor.
+        Copia o ficheiro com os parametros para o cliente.    
+        """
+        data = open('dados.txt', 'w') 
+        
+        localhost = netifaces.ifaddresses('eth0')[2][0]['addr']
+        data.write(str(localhost)+'\n')
+        data.write(str(self.sensorId)+'\n')
+        data.write(str(self.timeRead)+'\n')
+        
+        data.close()
+             
+        #realiza a copia do ficheiro
+        os.system("sshpass -p {0} rsync -av --progress {1} {2}@{3}:/home/adriano/Documentos/".format(self.password , 'dados.txt',self.userName ,self.ip))
+ 
+    def __unicode__(self):
+        return self.equipment.name
+    
+    class Meta:
+        verbose_name = 'Parâmetro cliente'
+        verbose_name_plural = 'Parâmetros cliente'
+    
+    
+        
