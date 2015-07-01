@@ -308,7 +308,7 @@ class Parameter(models.Model):
         data.close()
              
         #realiza a copia do ficheiro
-        os.system("sshpass -p {0} rsync -av --progress {1} {2}@{3}:/home/adriano/Documentos/".format(self.password , 'dados.txt',self.userName ,self.ip))
+        os.system("sshpass -p {0} rsync -av --progress {1} {2}@{3}:/home/"+self.userName+"/Documentos/".format(self.password , 'dados.txt',self.userName ,self.ip))
  
     def __unicode__(self):
         return self.equipment.name
