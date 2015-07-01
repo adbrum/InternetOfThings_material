@@ -4,6 +4,7 @@
 :Aluno: 11951
 :email: 911911951@alunos.ipbeja.pt
 """
+from audit_log.models.fields import CreatingUserField, LastUserField
 from datetime import datetime
 from django import forms
 from django.contrib.auth.models import User
@@ -14,8 +15,7 @@ from django.utils.translation import ugettext_lazy as _
 import netifaces
 from os.path import os
 
-from audit_log.models.fields import CreatingUserField, LastUserField
-from internet_of_things.settings import MEDIA_ROOT
+from internet_of_things.settings import MEDIA_ROOT, STATIC_ROOT
 
 
 class Microcomputer(models.Model):
@@ -298,7 +298,7 @@ class Parameter(models.Model):
         Salva os parametros necessários para a comunicação cliente servidor.
         Copia o ficheiro com os parametros para o cliente.    
         """
-        data = open('dados.txt', 'w') 
+        data = open(STATIC_ROOT+'files/dados.txt', 'w') 
         
         localhost = netifaces.ifaddresses('eth0')[2][0]['addr']
         data.write(str(localhost)+'\n')
@@ -306,9 +306,9 @@ class Parameter(models.Model):
         data.write(str(self.timeRead)+'\n')
         
         data.close()
-             
+
         #realiza a copia do ficheiro
-        os.system("sshpass -p {0} rsync -av --progress {1} {2}@{3}:/home/"+self.userName+"/Documentos/".format(self.password , 'dados.txt',self.userName ,self.ip))
+        os.system("sshpass -p "+self.password+" rsync -av --progress "+STATIC_ROOT+"files/dados.txt "+self.userName+"@"+self.ip+":/home/"+self.userName+"/swms/")
  
     def __unicode__(self):
         return self.equipment.name
