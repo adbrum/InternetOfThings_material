@@ -1,10 +1,10 @@
 # -*- coding: utf-8 -*-
+#!/usr/bin/env python
 """
 :Autor: Adriano Leal
 :Aluno: 11951
 :email: 911911951@alunos.ipbeja.pt
 """
-from audit_log.models.fields import CreatingUserField, LastUserField
 from datetime import datetime
 from django import forms
 from django.contrib.auth.models import User
@@ -13,8 +13,9 @@ from django.db.models.fields import FloatField, IntegerField
 from django.forms.widgets import PasswordInput
 from django.utils.translation import ugettext_lazy as _
 import netifaces
-from os.path import os
+import os
 
+from audit_log.models.fields import CreatingUserField, LastUserField
 from internet_of_things.settings import MEDIA_ROOT, STATIC_ROOT
 
 
@@ -287,7 +288,6 @@ class Parameter(models.Model):
     equipment = models.ForeignKey('Equipment', verbose_name='Equipamentos')
     ip = models.CharField(max_length=100, verbose_name='Endereço IP')
     userName = models.CharField(max_length=100, verbose_name='Utilizador')
-    #password = models.CharField(max_length=32, widget=forms.PasswordInput)
     password = models.CharField(max_length=100, verbose_name='Palavra passe')
     sensorId = models.IntegerField(verbose_name='ID do sensor')
     timeRead = models.IntegerField(verbose_name='Tempo do ciclo de leitura')
@@ -298,18 +298,30 @@ class Parameter(models.Model):
         Salva os parametros necessários para a comunicação cliente servidor.
         Copia o ficheiro com os parametros para o cliente.    
         """
-        data = open(STATIC_ROOT+'files/dados.txt', 'w') 
-        
+        data = open(STATIC_ROOT+'dados.txt', 'w') 
+          
         localhost = netifaces.ifaddresses('eth0')[2][0]['addr']
         data.write(str(localhost)+'\n')
         data.write(str(self.sensorId)+'\n')
         data.write(str(self.timeRead)+'\n')
-        
+          
         data.close()
 
         #realiza a copia do ficheiro
-        os.system("sshpass -p "+self.password+" rsync -av --progress "+STATIC_ROOT+"files/dados.txt "+self.userName+"@"+self.ip+":/home/"+self.userName+"/swms/")
+            
  
+        #os.system("python /var/www/material/InternetOfThings_material/iot/static/teste.py")
+        
+        #os.system("rsync --rsh='sshpass -p 'ArVl92br' ssh -l 'adriano' 192.168.5.203:/home/adriano/swms/ /var/www/material/InternetOfThings_material/iot/static/dados.txt")
+        #sshpass -p 't@uyM59bQ' ssh -o StrictHostKeyChecking=no username@server.example.com
+        #os.system("sshpass -p 'ArVl92br' rsync -av --progress /var/www/material/InternetOfThings_material/iot/static/dados.txt adriano@192.168.5.203:/home/adriano/swms/")
+        #os.system("sshpass -p 'ArVl92br' rsync -av --progress /var/www/material/InternetOfThings_material/iot/static/dados.txt adriano@192.168.5.203:/home/adriano/swms/")
+        #os.system("sshpass -p {0} rsync -av --progress {1} {2}@{3}:/home/adriano/swms/".format(self.password , STATIC_ROOT+'files/dados.txt', self.userName , self.ip))
+        os.system("sshpass -p "+self.password+" rsync -av --progress "+STATIC_ROOT+"dados.txt "+self.userName+"@"+self.ip+":/home/"+self.userName+"/swms/")
+        #rsync -av --rsync-path="sudo rsync" /path/to/files user@targethost:/path
+        super(Parameter, self).save(*args, **kwargs) # Call the "real" save() method.
+        #os.system("cp /var/www/material/InternetOfThings_material/iot/static/dados.txt /home/adriano/Documentos/")
+        
     def __unicode__(self):
         return self.equipment.name
     
