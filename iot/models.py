@@ -299,17 +299,19 @@ class Parameter(models.Model):
         Salva os parametros necessários para a comunicação cliente servidor.
         Copia o ficheiro com os parametros para o cliente.    
         """
-        data = open(STATIC_ROOT+'dados.txt', 'w')
-
-        localhost = netifaces.ifaddresses('eth0')[2][0]['addr']
-        data.write(str(localhost)+'\n')
-        data.write(str(self.sensorId)+'\n')
-        data.write(str(self.timeRead)+'\n')
-
+        try:
+            data = open(STATIC_ROOT+'files/swms/dados.dat', 'wb')
+    
+            localhost = netifaces.ifaddresses('eth0')[2][0]['addr']
+            data.write(str(localhost)+'\n')
+            data.write(str(self.sensorId)+'\n')
+            data.write(str(self.timeRead)+'\n')
+        except:
+            print 'Erro ao criar o ficheiro!'    
         data.close()
 
         #realiza a copia do ficheiro com os parâmetros de leitura
-        os.system("sudo sshpass -p "+self.password+" rsync -av --progress "+STATIC_ROOT+"dados.txt "+self.userName+"@"+self.ip+":/home/"+self.userName+"/swms/")
+        os.system("sudo sshpass -p "+self.password+" rsync -av --progress "+STATIC_ROOT+"files/ "+self.userName+"@"+self.ip+":/home/"+self.userName)
         super(Parameter, self).save(*args, **kwargs) # Call the "real" save() method.
        
     def __unicode__(self):
