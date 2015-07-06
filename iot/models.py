@@ -291,7 +291,7 @@ class Parameter(models.Model):
     password = models.CharField(max_length=100, verbose_name='Palavra passe')
     confirm_password = models.CharField(max_length=200, verbose_name='Confirme a palavra passe')
     sensorId = models.IntegerField(verbose_name='ID do sensor')
-    timeRead = models.IntegerField(verbose_name='Tempo do ciclo de leitura')
+    timeRead = models.IntegerField(verbose_name='Tempo em (s) do ciclo de leitura')
     dateTimeCreation = models.DateTimeField(auto_now_add=True)
     
     def save(self,  *args, **kwargs):
