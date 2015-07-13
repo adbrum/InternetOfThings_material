@@ -5,9 +5,12 @@
         <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
         {% block favicon %}<link href="{% static 'material/imgs/favicon.png' %}" rel="shortcut icon">{% endblock %}
 
-        <link href="//netdna.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css" rel="stylesheet">
+        
+        <link href="{% static 'font-awesome-4.3.0/css/font-awesome.min.css' %}" rel="stylesheet">
+        <!-- <link href="//netdna.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css" rel="stylesheet"> -->
         <!--link href="//cdn.datatables.net/1.10.5/css/jquery.dataTables.css" rel="stylesheet"-->
-        <link href="//cdn.datatables.net/responsive/1.0.4/css/dataTables.responsive.css" rel="stylesheet">
+        <link href="{% static 'Responsive-1.0.6/css/dataTables.responsive.css' %}" rel="stylesheet">
+        <!-- <link href="//cdn.datatables.net/responsive/1.0.4/css/dataTables.responsive.css" rel="stylesheet"> -->
         {% include 'material/includes/material_css.html' %}
         <link rel="stylesheet" type="text/css" href="{% block stylesheet %}{% static 'material/admin/css/base.css' %}{% endblock %}" />
         {% block extrastyle %}{% endblock %}
