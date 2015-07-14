@@ -14,6 +14,9 @@ from iot.models import Parameter
 
 
 class ParameterForm(ModelForm):
+    """
+    Função compara conteúdo digitado em dois campos e retorna sucesso ou erro.
+    """
     
     def clean(self):
         password = self.cleaned_data.get('password')
