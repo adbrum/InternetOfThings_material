@@ -90,7 +90,6 @@ while(True):
     except Exception as e:
             pass
  
- 
    #tenta fazer verificacao se os bits forao recebidos corretamente (total sao 8)
     try:
             for i in range(0, 8):
