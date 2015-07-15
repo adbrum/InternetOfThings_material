@@ -20,6 +20,9 @@ from internet_of_things.settings import MEDIA_ROOT, STATIC_ROOT
 
 
 class Microcomputer(models.Model):
+    """
+    Dados específicos para a criação de um Microcomputador.
+    """
     name = models.CharField(max_length=100, verbose_name='Nome')
     model = models.CharField(max_length=100, verbose_name='Modelo')
     processor = models.ForeignKey('Processor', blank=True, null=True, verbose_name='Processador')
@@ -41,6 +44,9 @@ class Microcomputer(models.Model):
 
 
 class Sensor(models.Model):
+    """
+    Dados específicos para a criação de um Sensor.
+    """
     name = models.CharField(max_length=100, verbose_name='Nome')
     serialNumber = models.CharField(max_length=100, verbose_name='Número de Série')
     model = models.CharField(max_length=100, null=True, verbose_name='Modelo')
@@ -55,6 +61,9 @@ class Sensor(models.Model):
   
 
 class PhysicalCharacteristic(models.Model):
+    """
+    Dados específicos para a criação da Características físicas.
+    """
     microComputer = models.ForeignKey('Microcomputer', verbose_name='Microcomputador')
     length = models.FloatField(default=0, verbose_name='Comprimento (mm)')
     width = models.FloatField(default=0, verbose_name='Largura (mm)')
@@ -69,6 +78,9 @@ class PhysicalCharacteristic(models.Model):
 
 
 class GPU(models.Model):
+    """
+    Dados específicos para a criação de uma GPU.
+    """
     type = models.CharField(max_length=100, verbose_name='Tipo')
     clockSpeed = models.IntegerField(verbose_name='Clock Speed MHz')
     userCreation = CreatingUserField(related_name="created_gpus")
@@ -85,6 +97,9 @@ class GPU(models.Model):
  
  
 class Processor(models.Model):
+    """
+    Dados específicos para a criação de um Processador.
+    """
     type = models.CharField(max_length=100, verbose_name='Processador')
     clockSpeed = models.IntegerField(verbose_name='Clock Speed MHz')
     userCreation = CreatingUserField(related_name="created_processor")
@@ -102,6 +117,9 @@ class Processor(models.Model):
 
 
 class Microcontroller(models.Model):
+    """
+    Dados específicos para a criação de um Microcontrolador.
+    """
     type = models.CharField(max_length=100, verbose_name='Microcontrolador')
     clockSpeed = models.IntegerField(verbose_name='Clock Speed MHz')
     userCreation = CreatingUserField(related_name="created_microcontroller")
@@ -118,6 +136,9 @@ class Microcontroller(models.Model):
 
 
 class Interface(models.Model):
+    """
+    Dados específicos para a criação de uma Interface.
+    """
     microComputer = models.ForeignKey('Microcomputer', verbose_name='Microcomputador')
     hdmi = models.CharField(blank=True, max_length=100)
     USBPorts = models.CharField(blank=True, max_length=100, verbose_name='Porta USB')
@@ -142,6 +163,9 @@ class Interface(models.Model):
         
 
 class OperatingSystem(models.Model):
+    """
+    Dados específicos para a criação de um Sistema Operativo.
+    """
     name = models.CharField(max_length=100, verbose_name='Nome')
     version = models.CharField(blank=True, max_length=100, verbose_name='Versão')
     userCreation = CreatingUserField(related_name="created_operationsystems")
@@ -158,6 +182,9 @@ class OperatingSystem(models.Model):
 
 
 class Expansion(models.Model):
+    """
+    Dados específicos para a criação de uma Expansão.
+    """
     type = models.CharField(max_length=100, verbose_name='Tipo')
     peripherals = models.CharField(blank=True, max_length=100, verbose_name='Periféricos')
     userCreation = CreatingUserField(related_name="created_expansions")
@@ -174,6 +201,9 @@ class Expansion(models.Model):
 
 
 class Accessory(models.Model):
+    """
+    Dados específicos para a criação de um Acessório.
+    """
     name = models.CharField(max_length=100, verbose_name='Nome')
     type = models.CharField(blank=True, max_length=100, verbose_name='Tipo')
     userCreation = CreatingUserField(related_name="created_accessory")
@@ -190,6 +220,9 @@ class Accessory(models.Model):
 
 
 class Memory(models.Model):
+    """
+    Dados específicos para a memória utilizada por um equipamento.
+    """
     microComputer = models.ForeignKey('Microcomputer', verbose_name='Microcomputador')
     
     KILOBYTE = 'KB'
@@ -224,6 +257,9 @@ class Memory(models.Model):
     
 
 class Voltage(models.Model):
+    """
+    Dados específicos para a voltagem utilizada por um equipamento.
+    """
     microComputer = models.ForeignKey('Microcomputer', verbose_name='Microcomputador')
     operatingVoltage = models.FloatField(default=0, verbose_name='Voltagem Operacional (V)')
     inputVoltageRecommended = models.CharField(max_length=10, default=0, verbose_name='Voltagem recomendada (V)')
@@ -242,6 +278,9 @@ class Voltage(models.Model):
     
 
 class Equipment(models.Model):
+    """
+    Dados específicos para a criação de uma Equipamento.
+    """
     name = models.CharField(max_length=100, verbose_name='Nome')
     model = models.CharField(blank=True, max_length=100, verbose_name='Modelo')
     microComputer = models.ForeignKey('Microcomputer', verbose_name='Microcomputador')
@@ -263,6 +302,9 @@ class Equipment(models.Model):
 
     
 class RelativePosition(models.Model):
+    """
+    Dados específicos para a posição relativa utilizada por um equipamento.
+    """
     nameElement = models.CharField(max_length=100)
     leftX = models.FloatField(default=0.0)
     topY = models.FloatField(default=0.0)
@@ -270,6 +312,9 @@ class RelativePosition(models.Model):
     height = models.FloatField(default=0.0)
     
 class Template(models.Model):
+    """
+    Dados específicos para a criação de uma Template.
+    """
     name = models.CharField(max_length=100, verbose_name='Nome do Template')
     imagePath = models.FileField(upload_to="static/img", blank=True)
     equipment = models.ManyToManyField('Equipment', verbose_name='Equipamentos')
@@ -279,12 +324,18 @@ class Template(models.Model):
     
     
 class ReadData(models.Model):
+    """
+    Dados colhidos na leitura de um sensor.
+    """
     sensorId = models.IntegerField()
     temperature = FloatField(verbose_name='Temperatura')
     humidity = FloatField(verbose_name='Humidade')
     dateTimeCreation = models.DateTimeField(auto_now_add=True)
     
 class Parameter(models.Model):
+    """
+    Dados específicos para a configuração de um equipamento cliente (Microcomputador).
+    """
     equipment = models.ForeignKey('Equipment', verbose_name='Equipamentos')
     ip = models.CharField(max_length=100, verbose_name='Endereço IP')
     userName = models.CharField(max_length=100, verbose_name='Utilizador')

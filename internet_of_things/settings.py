@@ -39,9 +39,9 @@ BOOTSTRAP_ADMIN_SIDEBAR_MENU = True
 
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = False
 
-TEMPLATE_DEBUG = True
+TEMPLATE_DEBUG = False
 
 ALLOWED_HOSTS = ['*']
 

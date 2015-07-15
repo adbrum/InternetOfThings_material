@@ -23,7 +23,7 @@ from iot.models import Equipment, Sensor, RelativePosition, Template
 @login_required(login_url='/admin/login/')
 def index(request):
     """
-    Página principal do utilizador
+    Exibe a página principal de utilizador
     """
 
     template = "home/index.html"
