@@ -20,7 +20,7 @@ GPIO.setmode(GPIO.BCM)
 #loop infinito
 while(True):
     try:
-        file = open('/home/pi/swms/dados.txt', 'rb')
+        file = open('/home/pi/swms/dados.dat', 'rb')
         data = []
         data.append(file. readlines())
         for i in data:
