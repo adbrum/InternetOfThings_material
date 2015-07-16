@@ -92,16 +92,21 @@ def addEquipmentPosition(request):
     """
     Salva a posição de todos os equipamentos e sensores.
     """
-    
     #Recebe a string pelo POST e a transforma em objeto.
     dados = json.loads(request.POST.get('dados'))
 
     for equipamento, valores in dados.iteritems():
         dict = {"topY": valores["y"], "leftX":valores["x"]}
           
-        posicaoTable = RelativePosition.objects.update_or_create(nameElement = equipamento,
+        posicaoTable, created = RelativePosition.objects.update_or_create(nameElement = equipamento,
                                         defaults=dict
                                         )
+        if created:
+            # means you have created a new person
+            dict = {"topY": "180", "leftX":"278"}
+        else:
+            # person just refers to the existing one
+            dict = {"topY": valores["y"], "leftX":valores["x"]}
     
     return HttpResponse(content_type = "application/json")
 
